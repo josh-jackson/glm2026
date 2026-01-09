@@ -41,6 +41,6 @@ Syllabus:
 </p>
 
 <div class="embed-container">
-  <iframe src="Syllabus_Psych3890_Spring2026.pdf" style="border: 0.5px"></iframe>
+  <iframe src="Syllabus_Psych3890_2026.pdf" style="border: 0.5px"></iframe>
 </div>
 ```
