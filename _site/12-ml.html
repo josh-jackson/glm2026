@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>GLM 2026 - ML-2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">GLM 2026</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./lectures.html" rel="" target="">
+ <span class="menu-text">Lectures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./homework.html" rel="" target="">
+ <span class="menu-text">homework</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html" rel="" target="">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#today-last-time" id="toc-today-last-time" class="nav-link active" data-scroll-target="#today-last-time">Today &amp; Last time…</a></li>
+  <li><a href="#explanation-vs.-prediction" id="toc-explanation-vs.-prediction" class="nav-link" data-scroll-target="#explanation-vs.-prediction">Explanation vs.&nbsp;Prediction</a></li>
+  <li><a href="#explanation-vs.-prediction-1" id="toc-explanation-vs.-prediction-1" class="nav-link" data-scroll-target="#explanation-vs.-prediction-1">Explanation vs.&nbsp;Prediction</a></li>
+  <li><a href="#explanation-vs.-prediction-2" id="toc-explanation-vs.-prediction-2" class="nav-link" data-scroll-target="#explanation-vs.-prediction-2">Explanation vs.&nbsp;Prediction</a></li>
+  <li><a href="#maybe-helpful-definitions" id="toc-maybe-helpful-definitions" class="nav-link" data-scroll-target="#maybe-helpful-definitions">Maybe Helpful Definitions</a></li>
+  <li><a href="#maybe-helpful-definitions-1" id="toc-maybe-helpful-definitions-1" class="nav-link" data-scroll-target="#maybe-helpful-definitions-1">Maybe Helpful Definitions</a></li>
+  <li><a href="#some-more-definitions" id="toc-some-more-definitions" class="nav-link" data-scroll-target="#some-more-definitions">Some more definitions</a></li>
+  <li><a href="#some-more-definitions-1" id="toc-some-more-definitions-1" class="nav-link" data-scroll-target="#some-more-definitions-1">Some more definitions</a></li>
+  <li><a href="#wash-u" id="toc-wash-u" class="nav-link" data-scroll-target="#wash-u"><span class="citation" data-cites="Wash">@Wash</span> U</a></li>
+  <li><a href="#machine-learning-algorithms" id="toc-machine-learning-algorithms" class="nav-link" data-scroll-target="#machine-learning-algorithms">Machine Learning Algorithms</a></li>
+  <li><a href="#some-terminology" id="toc-some-terminology" class="nav-link" data-scroll-target="#some-terminology">Some terminology</a></li>
+  <li><a href="#bias-and-variance" id="toc-bias-and-variance" class="nav-link" data-scroll-target="#bias-and-variance">Bias and Variance</a>
+  <ul class="collapse">
+  <li><a href="#you-should-be-afraidvery-afraid" id="toc-you-should-be-afraidvery-afraid" class="nav-link" data-scroll-target="#you-should-be-afraidvery-afraid">You should be afraid…very afraid</a></li>
+  </ul></li>
+  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation">Cross-validation</a></li>
+  <li><a href="#cross-validation-hold-out-samples" id="toc-cross-validation-hold-out-samples" class="nav-link" data-scroll-target="#cross-validation-hold-out-samples">Cross-validation: Hold-out Samples</a></li>
+  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation">K-fold Cross-validation</a></li>
+  <li><a href="#k-fold-cross-validation-1" id="toc-k-fold-cross-validation-1" class="nav-link" data-scroll-target="#k-fold-cross-validation-1">K-fold Cross-validation</a></li>
+  <li><a href="#leave-one-out-cross-validation" id="toc-leave-one-out-cross-validation" class="nav-link" data-scroll-target="#leave-one-out-cross-validation">Leave-One-Out Cross-validation</a></li>
+  <li><a href="#a-brief-aside" id="toc-a-brief-aside" class="nav-link" data-scroll-target="#a-brief-aside">A brief aside:</a></li>
+  <li><a href="#example-10-fold-cross-validation" id="toc-example-10-fold-cross-validation" class="nav-link" data-scroll-target="#example-10-fold-cross-validation">Example: 10-fold cross validation</a></li>
+  <li><a href="#cross-validation-summary" id="toc-cross-validation-summary" class="nav-link" data-scroll-target="#cross-validation-summary">Cross-Validation Summary</a></li>
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a></li>
+  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression">LASSO Regression</a></li>
+  <li><a href="#what-value-of-lambda-to-choose" id="toc-what-value-of-lambda-to-choose" class="nav-link" data-scroll-target="#what-value-of-lambda-to-choose">What value of <span class="math inline">\(\lambda\)</span> to choose?</a></li>
+  <li><a href="#what-value-of-lambda-to-choose-1" id="toc-what-value-of-lambda-to-choose-1" class="nav-link" data-scroll-target="#what-value-of-lambda-to-choose-1">What value of <span class="math inline">\(\lambda\)</span> to choose?</a></li>
+  <li><a href="#summary-yarkoni-and-westfall-2017" id="toc-summary-yarkoni-and-westfall-2017" class="nav-link" data-scroll-target="#summary-yarkoni-and-westfall-2017">Summary: Yarkoni and Westfall (2017)</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="12-ml.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ML-2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="today-last-time" class="level2">
+<h2 class="anchored" data-anchor-id="today-last-time">Today &amp; Last time…</h2>
+<ul>
+<li><p>Resampling methods via bootstrapping &amp; permutation testing</p></li>
+<li><p>Lessons from <strong>machine learning</strong></p></li>
+</ul>
+</section>
+<section id="explanation-vs.-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="explanation-vs.-prediction">Explanation vs.&nbsp;Prediction</h2>
+<p><em>Explanation</em>: describe causal underpinnings of behaviors/outcomes</p>
+<p><em>Prediction</em>: Accurately forecast behaviors/outcomes</p>
+<p>Similarities.</p>
+<ul>
+<li><p>Both are goals of science.</p></li>
+<li><p>Good predictions can help us develop theories of explanation and vice versa</p></li>
+</ul>
+</section>
+<section id="explanation-vs.-prediction-1" class="level2">
+<h2 class="anchored" data-anchor-id="explanation-vs.-prediction-1">Explanation vs.&nbsp;Prediction</h2>
+<p>Statistical Tensions</p>
+<ul>
+<li><p>Statistical models that accurately describe causal truths often have poor prediction and are complex</p></li>
+<li><p>Predictive models are often very different from the “true”, underlying data generating processes</p></li>
+</ul>
+</section>
+<section id="explanation-vs.-prediction-2" class="level2">
+<h2 class="anchored" data-anchor-id="explanation-vs.-prediction-2">Explanation vs.&nbsp;Prediction</h2>
+<ul>
+<li><p>What do we do in Psychology and Neuroscience?</p></li>
+<li><p>What about regression?</p></li>
+</ul>
+<p>Point of Yarkoni &amp; Westfall (2017) - How far have we really come in the past 10 years? 20 years? 30 years? …not as far as we’d like</p>
+<ul>
+<li><em>We should spend more time and resources developing predictive models than we currently do</em></li>
+</ul>
+<hr>
+<p><img src="ai.png" class="img-fluid"></p>
+</section>
+<section id="maybe-helpful-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="maybe-helpful-definitions">Maybe Helpful Definitions</h2>
+<p><strong>Machine Learning (ML)</strong> is the process of feeding previous observations into a computer and using the computer to generate predictions for new observations. AKA:</p>
+<ul>
+<li><p>machine inference</p></li>
+<li><p>pattern recognition (Google Photos!)</p></li>
+<li><p>statistical estimation</p></li>
+<li><p>prediction modeling</p></li>
+<li><p>statistical learning (ish)</p></li>
+</ul>
+</section>
+<section id="maybe-helpful-definitions-1" class="level2">
+<h2 class="anchored" data-anchor-id="maybe-helpful-definitions-1">Maybe Helpful Definitions</h2>
+<p><strong>Training</strong> occurs by extracting patterns from the observed data; think of this as <em>learning</em></p>
+<p><strong>Testing</strong> occurs by verifying predictions on previously unobserved data; think of this as <em>evaluating</em></p>
+<p><strong>Artificial Intelligence</strong> is not the same as machine learning. AI is the simulation of human intelligence by computers; AI systems are generally trained with machine learning approaches.</p>
+</section>
+<section id="some-more-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="some-more-definitions">Some more definitions</h2>
+<p><strong>Supervised Learning:</strong> using known patterns between input and output observations to train a mapping between the two</p>
+<ul>
+<li><p><strong>Regression!</strong> learning the mapping between a continuous input feature variable and a continuous output target variable</p></li>
+<li><p><strong>Classification:</strong> learning the mapping between a continuous input feature variable and a categorical output target variable (i.e., a label)</p></li>
+</ul>
+</section>
+<section id="some-more-definitions-1" class="level2">
+<h2 class="anchored" data-anchor-id="some-more-definitions-1">Some more definitions</h2>
+<p><strong>Unsupervised Learning:</strong> determining patterns in observations without guiding referents</p>
+<ul>
+<li><p><strong>Dimensionality Reduction:</strong> decreasing the overall number of features considered in a learning procedure (i.e., PCA, ICA etc.)</p></li>
+<li><p><strong>Clustering:</strong> grouping features together that are similar as determined by <em>some</em> metric</p></li>
+</ul>
+</section>
+<section id="wash-u" class="level2">
+<h2 class="anchored" data-anchor-id="wash-u"><span class="citation" data-cites="Wash">@Wash</span> U</h2>
+<ul>
+<li><p><strong>Reinforcement Learning:</strong> determining a mapping between input and output observations using only a measure of training quality</p></li>
+<li><p>ML classes in CS department</p></li>
+<li><p>Wouter Kool for reinforcement learning</p></li>
+<li><p>ACCSN with Dennis Barbour and myself for high level discussions on these topics</p></li>
+<li><p>Poli Sci department for dealing with categorical outcomes</p></li>
+</ul>
+</section>
+<section id="machine-learning-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-algorithms">Machine Learning Algorithms</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>ordinary least squares linear regression</li>
+<li>logistic regression</li>
+<li>k-means clustering</li>
+<li>nearest neighbor</li>
+<li>naive Bayes</li>
+<li>ridge regression</li>
+<li>LASSO regression</li>
+<li>support vector machine</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>random forest</li>
+<li>Gaussian process estimator</li>
+<li>multilayer perceptron (deep net)</li>
+<li>convolutional network</li>
+<li>recurrent network</li>
+<li>generalized adversarial network</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="some-terminology" class="level2">
+<h2 class="anchored" data-anchor-id="some-terminology">Some terminology</h2>
+<p><strong>Overfitting</strong> is when we <em>mistakenly</em> fit sample-specific noise as if it were actually a signal.</p>
+<ul>
+<li>If our model has a <span class="math inline">\(R^2 = .9\)</span>, we do an excellent job of explaining variance <em>in our sample</em>.</li>
+<li>OLS models tend to be overfit because they minimize error for a specific sample</li>
+</ul>
+</section>
+<section id="bias-and-variance" class="level2">
+<h2 class="anchored" data-anchor-id="bias-and-variance">Bias and Variance</h2>
+<p><strong>Bias</strong> refers to systematically over- or under-estimating parameters.</p>
+<p><strong>Variance</strong> refers to how much estimates tend to jump around</p>
+<p><strong>Bias-Variance Tradeoff</strong> we can reduce variance around our estimates but at the expense of increasing bias of estimates and vice versa</p>
+<p><strong>Underfitting</strong> means we can’t capture a relationship at all – not as big of a problem for us</p>
+<hr>
+<p><img src="biasvariance.png" class="img-fluid"></p>
+<hr>
+<section id="you-should-be-afraidvery-afraid" class="level3">
+<h3 class="anchored" data-anchor-id="you-should-be-afraidvery-afraid">You should be afraid…very afraid</h3>
+<hr>
+<p>How do we take what we know from overfitting &amp; the bias-variance tradeoff and incorporate it? What can we learn from the ML world?</p>
+<p><strong>Big Data</strong> * Reduce the likelihood of overfitting – more data means less error</p>
+<p><strong>Cross-validation</strong> * Is my model overfit?</p>
+<p><strong>Regularization</strong> * Constrain the model to be less overfit</p>
+<hr>
+<p>“Every pattern that could be observed in a given dataset reflects some…unknown combination of signal and error”</p>
+<p>Error is random, so it cannot correlate with anything; as we aggregate many pieces of information together, we reduce error.</p>
+<center>
+<p><img src="snr.jpeg" class="img-fluid"></p>
+</center></section>
+</section>
+<section id="cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="cross-validation">Cross-validation</h2>
+<p><strong>Cross-validation</strong> is a family of techniques that involve testing and training a model on different samples of data.</p>
+</section>
+<section id="cross-validation-hold-out-samples" class="level2">
+<h2 class="anchored" data-anchor-id="cross-validation-hold-out-samples">Cross-validation: Hold-out Samples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Split into training and testing sets</li>
+<li>Fit your model on the <em>training</em> set</li>
+<li>Predict outputs for your <em>testing</em> set</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Pros</strong></p>
+<ul>
+<li>Straightforward; computationally easy</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Which data go into which set?</li>
+<li>What if the vast majority of group A fall into the training set and the vast majority of group B fall into the testing set?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="k-fold-cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="k-fold-cross-validation">K-fold Cross-validation</h2>
+<ul>
+<li>Make <em>k</em> subsets of your data</li>
+<li>Repeat the hold-out method of test/train, but do it <em>k</em> times</li>
+<li>Get the model fit for all <em>k</em> iterations; take the average model fit</li>
+</ul>
+<hr>
+<p><img src="K-fold_cross_validation_EN.svg" class="img-fluid"></p>
+<p>[https://en.wikipedia.org/wiki/Cross-validation_(statistics)]</p>
+</section>
+<section id="k-fold-cross-validation-1" class="level2">
+<h2 class="anchored" data-anchor-id="k-fold-cross-validation-1">K-fold Cross-validation</h2>
+<p>Pros</p>
+<ul>
+<li><p>Doesn’t matter much which data points fall into test or train since each subset can be both a test and a training set</p></li>
+<li><p>The more folds you do (larger <em>k</em>), the more you are able to decrease your variance around your averaged model fit</p></li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Can take a decent amount of computational power, depending on the dataset</li>
+</ul>
+</section>
+<section id="leave-one-out-cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="leave-one-out-cross-validation">Leave-One-Out Cross-validation</h2>
+<ul>
+<li>Same as <em>k</em>-fold, but now <em>k</em> is equal to your <span class="math inline">\(N\)</span></li>
+</ul>
+<p>Pros</p>
+<ul>
+<li>Good estimations</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Even more computationally expensive</li>
+<li>Especially if using “big data”</li>
+</ul>
+<hr>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /Users/jackson/Library/CloudStorage/Box-Box/GLM_3890/2026</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>stress.data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"stress.csv"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(stress.data, <span class="at">fast =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        vars   n   mean     sd median  min    max  range  skew kurtosis    se
+id         1 118 488.65 295.95 462.50 2.00 986.00 984.00  0.10    -1.29 27.24
+Anxiety    2 118   7.61   2.49   7.75 0.70  14.64  13.94 -0.18     0.28  0.23
+Stress     3 118   5.18   1.88   5.27 0.62  10.32   9.71  0.08     0.22  0.17
+Support    4 118   8.73   3.28   8.52 0.02  17.34  17.32  0.18     0.19  0.30
+group      5 118    NaN     NA     NA  Inf   -Inf   -Inf    NA       NA    NA</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model.lm <span class="ot">=</span> <span class="fu">lm</span>(Stress <span class="sc">~</span> Anxiety<span class="sc">*</span>Support<span class="sc">*</span>group, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> stress.data)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model.lm)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4126943</code></pre>
+</div>
+</div>
+</section>
+<section id="a-brief-aside" class="level2">
+<h2 class="anchored" data-anchor-id="a-brief-aside">A brief aside:</h2>
+<p>Newer package called <code>tidymodels</code> is better for machine learning, but requires many more steps. For now, this is the simpler method.</p>
+<p><code>R</code> vs.&nbsp;<code>Python</code> 🐍 . <code>R</code> is excellent for statistics and visualizing data. Most of what we do in Psychology. <code>Python</code> is better for machine learning and is more of a full suite language.</p>
+<p>If you’re going hard with ML, use <code>tidymodels</code> or Python.</p>
+</section>
+<section id="example-10-fold-cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="example-10-fold-cross-validation">Example: 10-fold cross validation</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set control parameters</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method=</span><span class="st">"cv"</span>, <span class="at">number=</span><span class="dv">10</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># use train() instead of lm()</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>cv.model <span class="ot">&lt;-</span> <span class="fu">train</span>(Stress <span class="sc">~</span> Anxiety<span class="sc">*</span>Support<span class="sc">*</span>group, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> stress.data, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">trControl=</span>ctrl, <span class="co"># what are the control parameters</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">method=</span><span class="st">"lm"</span>) <span class="co"># what kind of model</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>cv.model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear Regression 
+
+118 samples
+  3 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 106, 106, 106, 106, 106, 106, ... 
+Resampling results:
+
+  RMSE      Rsquared   MAE     
+  1.502581  0.4044489  1.213143
+
+Tuning parameter 'intercept' was held constant at a value of TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="cross-validation-summary" class="level2">
+<h2 class="anchored" data-anchor-id="cross-validation-summary">Cross-Validation Summary</h2>
+<ul>
+<li><p>Tempers your estimates to protect against overfitting</p></li>
+<li><p>You do not need fancy ML algorithms. You can do this with your classic regression!</p></li>
+<li><p>If your whole sample is not representative, this will not save you</p></li>
+</ul>
+</section>
+<section id="regularization" class="level2">
+<h2 class="anchored" data-anchor-id="regularization">Regularization</h2>
+<p>Penalizing a model as it grows more complex.</p>
+<ul>
+<li>Usually involves <strong><em>shrinking</em></strong> coefficient estimates – the model will fit less well in-sample but may be more predictive</li>
+</ul>
+<hr>
+<p><strong>LASSO regression</strong>: balance minimizing sum of squared residuals (OLS) and minimizing smallest sum of absolute values of coefficients.</p>
+<ul>
+<li><p>Penalize the size of the coefficients</p></li>
+<li><p>The larger the penalty applied, the more estimates are go towards zero (or “shrink” – the first “S”)</p></li>
+<li><p>Coefficients are more biased (tend to underestimate coefficients) but produce less variability in results</p></li>
+<li><p>Also helps with variable selection</p></li>
+</ul>
+<p>The coefficient <span class="math inline">\(\lambda\)</span> is used to penalize the model.</p>
+<p>Least Absolute Shrinkage and Selection Operator</p>
+</section>
+<section id="lasso-regression" class="level2">
+<h2 class="anchored" data-anchor-id="lasso-regression">LASSO Regression</h2>
+<ul>
+<li><p>The <code>glmnet</code> package has the tools for LASSO regression.</p></li>
+<li><p>One small complication is that the package uses matrix algebra, so you need to feed it a matrix of predictors – specifically, instead of saying “find the interaction between A and B”, you need to create the variable that represents this term.</p></li>
+<li><p>Luckily, the function <code>model.matrix()</code> can do this for you.</p></li>
+</ul>
+<hr>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># provide your original lm model to get matrix of predictors</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>X.matrix <span class="ot">&lt;-</span> <span class="fu">model.matrix.lm</span>(model.lm) </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(X.matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  (Intercept)  Anxiety Support groupTx Anxiety:Support Anxiety:groupTx
+1           1 10.18520  6.1602       1        62.74287         10.1852
+2           1  5.58873  8.9069       0        49.77826          0.0000
+3           1  6.58500 10.5433       1        69.42763          6.5850
+4           1  8.95430 11.4605       1       102.62076          8.9543
+5           1  7.59910  5.5516       0        42.18716          0.0000
+6           1  8.15600  7.5117       1        61.26543          8.1560
+  Support:groupTx Anxiety:Support:groupTx
+1          6.1602                62.74287
+2          0.0000                 0.00000
+3         10.5433                69.42763
+4         11.4605               102.62076
+5          0.0000                 0.00000
+6          7.5117                61.26543</code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loaded glmnet 4.1-8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lasso.mod <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(<span class="at">x =</span> X.matrix[,<span class="sc">-</span><span class="dv">1</span>], <span class="co">#don't need the intercept </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> stress.data<span class="sc">$</span>Stress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lasso.mod</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:  glmnet(x = X.matrix[, -1], y = stress.data$Stress) 
+
+   Df  %Dev  Lambda
+1   0  0.00 0.97920
+2   1  4.66 0.89220
+3   1  8.54 0.81300
+4   1 11.75 0.74080
+5   1 14.42 0.67500
+6   1 16.64 0.61500
+7   1 18.48 0.56040
+8   1 20.00 0.51060
+9   1 21.27 0.46520
+10  1 22.32 0.42390
+11  1 23.20 0.38620
+12  2 24.11 0.35190
+13  2 24.98 0.32070
+14  2 25.70 0.29220
+15  2 26.29 0.26620
+16  3 27.40 0.24260
+17  2 29.39 0.22100
+18  2 30.44 0.20140
+19  2 31.31 0.18350
+20  2 32.03 0.16720
+21  2 32.63 0.15230
+22  2 33.13 0.13880
+23  2 33.54 0.12650
+24  2 33.88 0.11520
+25  2 34.17 0.10500
+26  2 34.41 0.09567
+27  2 34.60 0.08717
+28  2 34.76 0.07943
+29  2 34.90 0.07237
+30  3 35.40 0.06594
+31  3 36.32 0.06009
+32  3 37.09 0.05475
+33  3 37.72 0.04988
+34  3 38.25 0.04545
+35  3 38.69 0.04141
+36  4 39.06 0.03774
+37  4 39.35 0.03438
+38  4 39.61 0.03133
+39  4 39.81 0.02855
+40  4 39.99 0.02601
+41  4 40.13 0.02370
+42  4 40.25 0.02159
+43  4 40.35 0.01968
+44  6 40.45 0.01793
+45  5 40.57 0.01633
+46  5 40.65 0.01488
+47  5 40.72 0.01356
+48  5 40.78 0.01236
+49  5 40.83 0.01126
+50  6 40.88 0.01026
+51  6 40.95 0.00935
+52  6 41.00 0.00852
+53  6 41.04 0.00776
+54  6 41.08 0.00707
+55  6 41.11 0.00644
+56  6 41.13 0.00587
+57  6 41.15 0.00535
+58  6 41.17 0.00487
+59  6 41.18 0.00444
+60  6 41.19 0.00405
+61  6 41.20 0.00369
+62  6 41.21 0.00336
+63  6 41.22 0.00306
+64  6 41.22 0.00279
+65  6 41.23 0.00254
+66  6 41.23 0.00231
+67  6 41.24 0.00211
+68  7 41.24 0.00192
+69  7 41.24 0.00175
+70  7 41.24 0.00160
+71  7 41.25 0.00145
+72  7 41.25 0.00132
+73  7 41.25 0.00121
+74  7 41.25 0.00110
+75  7 41.25 0.00100
+76  7 41.26 0.00091
+77  7 41.26 0.00083
+78  7 41.26 0.00076
+79  7 41.26 0.00069
+80  7 41.26 0.00063
+81  7 41.26 0.00057
+82  7 41.26 0.00052
+83  7 41.26 0.00048
+84  7 41.26 0.00043
+85  7 41.26 0.00040
+86  7 41.26 0.00036
+87  7 41.26 0.00033</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>DF = number of non-zero coefficients</li>
+<li>dev = <span class="math inline">\(R^2\)</span></li>
+<li>lambda = complexity parameter
+<ul>
+<li>how much to down-weight</li>
+<li>between 0 &amp; 1</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="what-value-of-lambda-to-choose" class="level2">
+<h2 class="anchored" data-anchor-id="what-value-of-lambda-to-choose">What value of <span class="math inline">\(\lambda\)</span> to choose?</h2>
+<p>Looks like coefficients 1, 2, and 3 have high values even with shrinkage.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lasso.mod, <span class="at">xvar =</span> <span class="st">"dev"</span>, <span class="at">label =</span> T, )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="12-ml_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="what-value-of-lambda-to-choose-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-value-of-lambda-to-choose-1">What value of <span class="math inline">\(\lambda\)</span> to choose?</h2>
+<p>Looking for <span class="math inline">\(\lambda\)</span> values where those coefficients are still different from 0.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lasso.mod, <span class="at">xvar =</span> <span class="st">"lambda"</span>, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">cex =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="12-ml_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>coef <span class="ot">=</span> <span class="fu">coef</span>(lasso.mod, <span class="at">s =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">5</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> coef, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>8 x 1 sparse Matrix of class "dgCMatrix"
+                           s1
+(Intercept)             -2.21
+Anxiety                  0.57
+Support                  0.62
+groupTx                 -0.49
+Anxiety:Support         -0.04
+Anxiety:groupTx          .   
+Support:groupTx          0.03
+Anxiety:Support:groupTx  0.00</code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>coef <span class="ot">=</span> <span class="fu">coef</span>(lasso.mod, <span class="at">s =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">4</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> coef, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8 x 1 sparse Matrix of class "dgCMatrix"
+                           s1
+(Intercept)             -1.85
+Anxiety                  0.50
+Support                  0.58
+groupTx                  0.00
+Anxiety:Support         -0.03
+Anxiety:groupTx          0.00
+Support:groupTx          0.00
+Anxiety:Support:groupTx  .   </code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>coef <span class="ot">=</span> <span class="fu">coef</span>(lasso.mod, <span class="at">s =</span> <span class="dv">0</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8 x 1 sparse Matrix of class "dgCMatrix"
+                                  s1
+(Intercept)             -2.373766131
+Anxiety                  0.612812455
+Support                  0.650290859
+groupTx                 -1.044285345
+Anxiety:Support         -0.045146588
+Anxiety:groupTx          0.025299852
+Support:groupTx          0.048852216
+Anxiety:Support:groupTx  0.005913829</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\lambda = 0\)</span> is pretty close to our OLS solution</p>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>coef <span class="ot">=</span> <span class="fu">coef</span>(lasso.mod, <span class="at">s =</span> <span class="dv">1</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8 x 1 sparse Matrix of class "dgCMatrix"
+                              s1
+(Intercept)             5.180003
+Anxiety                 .       
+Support                 .       
+groupTx                 .       
+Anxiety:Support         .       
+Anxiety:groupTx         .       
+Support:groupTx         .       
+Anxiety:Support:groupTx .       </code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\lambda = 1\)</span> is a huge penalty</p>
+<hr>
+<p>Choosing a lambda based on eyeballing can be hard. We can use cross-validation instead to help us choose!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cvfit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> X.matrix[,<span class="sc">-</span><span class="dv">1</span>], <span class="at">y =</span> stress.data<span class="sc">$</span>Stress, <span class="at">type.measure =</span> <span class="st">"deviance"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>cvfit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:  cv.glmnet(x = X.matrix[, -1], y = stress.data$Stress, type.measure = "deviance") 
+
+Measure: Mean-squared Error 
+
+     Lambda Index Measure     SE Nonzero
+min 0.01968    43   2.372 0.4090       4
+1se 0.24256    16   2.760 0.4463       3</code></pre>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cvfit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="12-ml_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<p>Once you’ve imposed a shrinkage penalty on your coefficients, you’ve wandered far from the realm of NHST.</p>
+<p>In general, you’ll find that very few ML techniques are compatible with probability theory (including Bayesian), because they’re focused on different goals.</p>
+<p>Instead of asking, “how does random chance factor into my result?”, machine learning optimizes (out of sample) prediction. Both methods explicitly deal with random variability.</p>
+<p>Rather than estimating degree of randomness; in machine learning, we’re trying to remove it.</p>
+</section>
+<section id="summary-yarkoni-and-westfall-2017" class="level2">
+<h2 class="anchored" data-anchor-id="summary-yarkoni-and-westfall-2017">Summary: Yarkoni and Westfall (2017)</h2>
+<p><strong>Big Data</strong> * Reduce the likelihood of overfitting – more data means less error</p>
+<p><strong>Cross-validation</strong> * Is my model overfit?</p>
+<p><strong>Regularization</strong> * Constrain the model to be less overfit</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

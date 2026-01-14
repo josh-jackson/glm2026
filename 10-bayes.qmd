@@ -128,12 +128,15 @@ plot(conditional_effects(fit.1.bayesian), points = TRUE)
 
 ```{r}
 #| code-fold: true
+
 library(tidybayes)
+
 fit.1.bayesian %>% 
 spread_draws(b_Intercept, b_parent) %>% 
 select(b_parent) %>% 
   mode_hdi(.width = c(.95)) %>%  
-ggplot(aes(y = as.factor(.width), x = b_parent, xmin = .lower, xmax = .upper)) + geom_pointinterval() + ylab("")
+ggplot(aes(y = as.factor(.width), x = b_parent, xmin = .lower, xmax = .upper)) 
+#+ geom_pointinterval() + ylab("")
 
 ```
 
@@ -616,7 +619,6 @@ $$ child_i \sim Normal( \mu_i , \sigma )\ $$
 
 $$\mu_i = \beta_0 + \beta_1  parent_i $$
 
-
 ## regression with brms
 
 ```{r}
@@ -627,14 +629,13 @@ fit.1.bayesian <- brm(child ~ parent, data = galton.data,
                       file = "fit.1.b")
 ```
 
-
---------
+------------------------------------------------------------------------
 
 ```{r}
 summary(fit.1.bayesian)
 ```
 
-----------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -645,8 +646,7 @@ ggplot(aes(x = b_parent)) +
   stat_halfeye()
 ```
 
-
-----------
+------------------------------------------------------------------------
 
 ## Prior for intercept
 
@@ -688,7 +688,7 @@ p.s
 
 -   What is an upper bound possibility?
 
------------------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -702,7 +702,7 @@ tibble(n = 1:100,
   coord_cartesian(ylim = c(36, 96)) 
 ```
 
------------
+------------------------------------------------------------------------
 
 ```{r}
 
@@ -721,23 +721,19 @@ fit.2 <-
       file = "fit.2")
 ```
 
-
-------
+------------------------------------------------------------------------
 
 ```{r}
 plot(fit.2)
 ```
 
-
-
---------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 plot(conditional_effects(fit.2), points = TRUE)
 
 ```
-
 
 ## What is in the brms object?
 
@@ -757,7 +753,6 @@ get_variables(fit.2)
 
 ```
 
-
 ------------------------------------------------------------------------
 
 ```{r}
@@ -768,7 +763,8 @@ spread_draws(b_Intercept, b_parent.c) %>%
   mean_qi(.width = c(.5, .89, .95, .99))
 ```
 
--------
+------------------------------------------------------------------------
+
 ```{r}
 #| code-fold: true
   fit.2 %>% 
@@ -776,8 +772,6 @@ spread_draws(b_Intercept, b_parent.c) %>%
   mean_qi(.width = c(.50, .89, .95, .99)) %>%  
 ggplot(aes(y = as.factor(.width), x = b_parent.c, xmin = .lower, xmax = .upper)) + geom_pointinterval() 
 ```
-
-
 
 ## prior and posterior plotted together
 
@@ -790,10 +784,9 @@ fit.2 %>%
   stat_function(data = data.frame(x = c(-10, 10)), aes(x), fun = dnorm, n = 100, args = list(0, 5)) 
 ```
 
-
 ## Predicted/fitted values
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 If we examine a expected/predicted mean at a certain value across all of our samples we directly compute our uncertainty. In contrast to frequentist where we have to use an ugly equation, which has big assumptions.
 :::
@@ -806,9 +799,8 @@ fit.2 %>%
   select(b_Intercept,b_parent.c) %>% 
   mutate(mu_at_64 = b_Intercept + (b_parent.c * -4.3))
 ```
-
 :::
-:::
+:::::
 
 ## Predicted/fitted values
 
@@ -826,7 +818,6 @@ fit.2 %>%
   xlab(expression(mu["Child-height at parent 64"])) 
 
 ```
-
 
 ## Predicted/fitted values
 
