@@ -1335,5 +1335,33 @@
     "title": "hw 6",
     "section": "",
     "text": "Due: 3/4 at 9:59am\nData: The data consist of a 2x3 anova design examining comics. The two factors are: 1) Publisher, which has two levels (DC or Marvel comics). 2) is Alignment, which has three levels (good, bad, neutral). The DV is Total, which is a combination of strength, intelligence, speed, durability, power, and combat. Higher scores are better.\nThe research question is whether there are differences in total across publisher, across type of superhereo alignment and whether there is an interaction between these two factors. Data can be found here: hw-6-data.csv\nRemember that if you work with a peer or use AI tools like Chat-GPT, you must cite them in your code.\nYou will submit both your .Rmd/.qmd and HTML files to Canvas. For all figures, you must be intentional. Change the axes names, the theme etc. Do not settle for the defaults!\nGood luck!\n\nWrite the equation that you will use to test the hypothesis. Run this in R and interpret what each of the coefficients mean.\nAre there any significant differences between?\n\n\n\n\nGood and bad?\nDC vs Marvel\nDC bad superheros vs Marvel bad superheros\nDC neutral vs DC bad\n\n\n\nWhat are the standardized (cohen’s d) differences between the groups in #2?\nCreate two graphs. 1. that show cell differences between groups. 2. that show differences in one of the marginal means."
+  },
+  {
+    "objectID": "hw-04-5.html",
+    "href": "hw-04-5.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "Data: These data are from the 2015 World Happiness Report which is part of the Gallup World Poll. Data can be found here world_happiness_2015.csv\nThe variables include:\nRemember that if you work with a peer or use AI tools like Chat-GPT, you must cite them in your code.\nYou will submit both your .Rmd and HTML files to Canvas. For all figures, you must be intentional. Change the axes names, the theme etc. Do not settle for the defaults!\nGood luck!"
+  },
+  {
+    "objectID": "hw-04-5.html#question-1",
+    "href": "hw-04-5.html#question-1",
+    "title": "Untitled",
+    "section": "Question 1",
+    "text": "Question 1\nRun a 1-predictor regression on any 2 variables of your choice, excluding Country.\n\nWrite the equation\nInterpret all coefficients\nInterpret all significance tests of the coefficients\nInterpret the omnibus test\nInterpret the Residual Standard Error and \\(R^2\\)\nMake an appropriate figure. Do not use the defualts (aka change the background, the colors used, etc.). You must have meaningful labels for your axes."
+  },
+  {
+    "objectID": "hw-04-5.html#question-2",
+    "href": "hw-04-5.html#question-2",
+    "title": "Untitled",
+    "section": "Question 2",
+    "text": "Question 2\nRun a 2-predictor regression. Use the same outcome variable as above. Use the same predictor as above for predictor 1. You are now adding an additional predictor.\n\nWrite the equation\nInterpret all coefficients\nInterpret all significance tests around the coefficients. Did the inference you make about predictor 1 in Question 1 change here in Question 2?\nInterpret the omnibus test\nInterpret the model fit\nDirectly compare these 2 models (hint: it’s a single function, you might need to use Google). Which model is preferable?\nMake an appropriate figure of this 2 predictor model"
+  },
+  {
+    "objectID": "hw-04-5.html#question-3",
+    "href": "hw-04-5.html#question-3",
+    "title": "Untitled",
+    "section": "Question 3",
+    "text": "Question 3\nRun a 3-predictor regression. Use the same outcome variable as above. Use the same predictor 1 & predictor 2 as you did in Quesiton 2. You are now adding an additional predictor.\n\nWrite the equation\nInterpret all coefficients\nInterpret all significance tests around the coefficients. Did the inference you make about predictor 1 and predcitor 2 change here?\nInterpret the omnibus test\nInterpret the model fit\nDirectly compare this model to the one you ran in question 2. Which model is preferable?\nMake an appropriate figure of this 2 predictor model"
   }
 ]
