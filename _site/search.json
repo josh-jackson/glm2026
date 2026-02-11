@@ -18,7 +18,7 @@
     "href": "homework.html",
     "title": "homework",
     "section": "",
-    "text": "R Refresher\nHW #2\nHW #3\nHW #4\nHW #5\nHW #6/7\nHW #8\nHW #9"
+    "text": "R Refresher\nHW #2\nHW #3\nHW #4\nHW #4.5\nHW #5\nHW #6/7\nHW #8\nHW #9"
   },
   {
     "objectID": "R-Refresher.html",
@@ -1328,5 +1328,12 @@
     "title": "GLM basics III",
     "section": "model comparisons",
     "text": "model comparisons\n\n\n\nCall:\nlm(formula = Stress ~ Support, data = stress.data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.8215 -1.2145 -0.1796  1.0806  3.4326 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  2.56046    0.42189   6.069 1.66e-08 ***\nSupport      0.30006    0.04527   6.629 1.12e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.605 on 116 degrees of freedom\nMultiple R-squared:  0.2747,    Adjusted R-squared:  0.2685 \nF-statistic: 43.94 on 1 and 116 DF,  p-value: 1.12e-09"
+  },
+  {
+    "objectID": "7-hw.html",
+    "href": "7-hw.html",
+    "title": "hw 6",
+    "section": "",
+    "text": "Due: 3/4 at 9:59am\nData: The data consist of a 2x3 anova design examining comics. The two factors are: 1) Publisher, which has two levels (DC or Marvel comics). 2) is Alignment, which has three levels (good, bad, neutral). The DV is Total, which is a combination of strength, intelligence, speed, durability, power, and combat. Higher scores are better.\nThe research question is whether there are differences in total across publisher, across type of superhereo alignment and whether there is an interaction between these two factors. Data can be found here: hw-6-data.csv\nRemember that if you work with a peer or use AI tools like Chat-GPT, you must cite them in your code.\nYou will submit both your .Rmd/.qmd and HTML files to Canvas. For all figures, you must be intentional. Change the axes names, the theme etc. Do not settle for the defaults!\nGood luck!\n\nWrite the equation that you will use to test the hypothesis. Run this in R and interpret what each of the coefficients mean.\nAre there any significant differences between?\n\n\n\n\nGood and bad?\nDC vs Marvel\nDC bad superheros vs Marvel bad superheros\nDC neutral vs DC bad\n\n\n\nWhat are the standardized (cohen’s d) differences between the groups in #2?\nCreate two graphs. 1. that show cell differences between groups. 2. that show differences in one of the marginal means."
   }
 ]

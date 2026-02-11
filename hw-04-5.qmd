@@ -1,0 +1,63 @@
+---
+title: "Untitled"
+---
+
+
+**Data:** These data are from the 2015 World Happiness Report which is part of the Gallup World Poll. Data can be found here [`world_happiness_2015.csv`](world_happiness_2015.csv)
+
+The variables include:
+
+-   **Happiness**: "“Please imagine a ladder, with steps numbered from 0 at the bottom to 10 at the top. The top of the ladder represents the best possible life for you and the bottom of the ladder represents the worst possible life for you. On which step of the ladder would you say you personally feel you stand at this time?”
+
+-   **GDP**: Log gross domestic product per capita
+
+-   **Support**: “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them, or not?”
+
+-   **Life**: Healthy life expectancy at birth
+
+-   **Freedom**: “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”
+
+-   **Generosity**: “Have you donated money to a charity in the past month?” (residual, adjusting for GDP)
+
+-   **Corruption**: “Is corruption widespread throughout the government or not” and “Is corruption widespread within businesses or not?”
+
+Remember that if you work with a peer or use AI tools like Chat-GPT, you must cite them in your code.
+
+You will submit both your .Rmd and HTML files to Canvas. For all figures, you must be intentional. Change the axes names, the theme etc. Do not settle for the defaults!
+
+Good luck!
+
+## Question 1
+
+Run a 1-predictor regression on any 2 variables of your choice, excluding Country.
+
+-   Write the equation
+-   Interpret all coefficients
+-   Interpret all significance tests of the coefficients
+-   Interpret the omnibus test
+-   Interpret the Residual Standard Error and $R^2$
+-   Make an appropriate figure. Do not use the defualts (aka change the background, the colors used, etc.). You must have meaningful labels for your axes.
+
+## Question 2
+
+Run a 2-predictor regression. Use the same outcome variable as above. Use the same predictor as above for predictor 1. You are now adding an additional predictor.
+
+-   Write the equation
+-   Interpret all coefficients
+-   Interpret all significance tests around the coefficients. Did the inference you make about predictor 1 in Question 1 change here in Question 2?
+-   Interpret the omnibus test
+-   Interpret the model fit
+-   Directly compare these 2 models (hint: it's a single function, you might need to use Google). Which model is preferable?
+-   Make an appropriate figure of this 2 predictor model
+
+## Question 3
+
+Run a 3-predictor regression. Use the same outcome variable as above. Use the same predictor 1 & predictor 2 as you did in Quesiton 2. You are now adding an additional predictor.
+
+-   Write the equation
+-   Interpret all coefficients
+-   Interpret all significance tests around the coefficients. Did the inference you make about predictor 1 and predcitor 2 change here?
+-   Interpret the omnibus test
+-   Interpret the model fit
+-   Directly compare this model to the one you ran in question 2. Which model is preferable?
+-   Make an appropriate figure of this 2 predictor model
