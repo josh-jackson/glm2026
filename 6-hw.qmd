@@ -2,9 +2,9 @@
 title: "Homework 5"
 ---
 
-Due 2/26 at 9:59am
+Due 2/23 at 9:59am
 
-**Data:** The dataset looks at happiness in college as a relationship with school success, friendship quality, SES, and an intervention group (1 = control, 2 = study skills training, 3 = social skills training). The data are here: [`hw-5-data.csv`](hw-5-data.csv)
+**Data:** The dataset looks at happiness in college as a relationship with school success, friendship quality, SES, and an intervention group (1 = control, 2 = study skills training, 3 = social skills training). The data are here: [`hw-6-data.csv`](hw-6-data.csv)
 
 Remember that if you work with a peer or use AI tools like Chat-GPT, you must cite them in your code.
 
