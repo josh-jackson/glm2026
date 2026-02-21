@@ -11,7 +11,6 @@ html:
   scrollable: true
 ---
 
-
 ```{r, echo = F, warning = F, message = F}
 library(tidyverse)
 library(psych)
@@ -27,17 +26,16 @@ describe(nhanes)
 
 ```
 
------------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 summary(lm(Weight ~ Age, data = nhanes))
 ```
 
+------------------------------------------------------------------------
 
------------
-
-For 1 predictor, this is the same as a ____
+For 1 predictor, this is the same as a \_\_\_\_
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -47,16 +45,14 @@ ggplot(data = nhanes, aes(x = Age, y = Weight)) +
   theme_classic(base_size = 18)
 ```
 
------------
-
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 summary(lm(Weight ~ Smoke100n, data = nhanes))
 ```
 
-
------------
+------------------------------------------------------------------------
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -69,15 +65,14 @@ ggplot(data = nhanes, aes(x = Smoke100n, y = Weight)) +
 
 ```
 
-
---------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 summary(lm(Weight ~ Age + Poverty, data = nhanes))
 ```
 
-----------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -88,15 +83,13 @@ output = predict_response(covar.model, terms = "Poverty")
 output
 ```
 
-
-------
+------------------------------------------------------------------------
 
 ```{r}
 tibble(output)
 ```
 
-
-------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -106,14 +99,14 @@ ggplot(data = output, aes(x = x, y = predicted)) +
   theme_classic(base_size = 18) + xlab("Poverty") + ylab("Weight")
 ```
 
-------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 summary(lm(Weight ~ Age * Poverty, data = nhanes))
 ```
 
---------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -125,30 +118,27 @@ output.cont.inter
 
 ```
 
--------
+------------------------------------------------------------------------
 
 ```{r}
 tibble(output.cont.inter)
 ```
 
-
-
-----------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 plot(output.cont.inter,show_data = TRUE)
 ```
 
-
---------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 summary(lm(Weight ~ Age * Gender, data = nhanes))
 ```
 
----------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -159,28 +149,27 @@ output.mixed.inter = predict_response(mixed.inter, terms = c("Age", "Gender"))
 output.mixed.inter
 ```
 
--------
+------------------------------------------------------------------------
 
 ```{r}
 tibble(output.mixed.inter)
 ```
 
-
----
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 plot(output.mixed.inter,show_data = TRUE)
 ```
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
 summary(lm(Weight ~ Gender * Smoke100n, data = nhanes))
 ```
 
--------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true
@@ -193,15 +182,13 @@ output.cat.inter = predict_response(cat.inter, terms = c("Gender", "Smoke100n"))
 output.cat.inter
 ```
 
-
---------
+------------------------------------------------------------------------
 
 ```{r}
 tibble(output.cat.inter)
 ```
 
-
----------
+------------------------------------------------------------------------
 
 ```{r}
 #| code-fold: true

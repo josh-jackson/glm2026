@@ -19,11 +19,11 @@ editor: source
 
 8. [Diagnostics](diagnostics.qmd)
 
-9. [Power and poly](power.qmd)
+9. [p-values](pvalues.pdf)
 
-10. [MLM](7-mlm.qmd)
+10. [SEM](8-sem.pdf) 
 
-12. [SEM](8-sem.pdf)
+12. [MLM](7-mlm.qmd)
 
 13. [logistic](9-logistic.qmd)
 
