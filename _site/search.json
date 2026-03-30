@@ -2230,7 +2230,7 @@
     "href": "9-logistic.html#generalized-linear-models-1",
     "title": "Logistic",
     "section": "Generalized linear models",
-    "text": "Generalized linear models\n\nGaussian model is \\[y_i \\sim  N(\\mu_i, \\sigma)\\]\n\n\\[\\mu_i = \\alpha + \\beta x_i\\] - The parameters of the normal distribution are the mean μ and the standard deviation σ (or the variance \\(\\sigma^2\\))]\n\nBinomial outcome is \\[y_i \\sim  Binomial(n, p_i)\\]\n\n\\[f(p_i) = \\alpha + \\beta x_i\\] - n stands for the number of times the experiment runs. - p represents the probability of one specific outcome.]"
+    "text": "Generalized linear models\n\nGaussian model is \\[y_i \\sim  N(\\mu_i, \\sigma)\\]\n\n\\[\\mu_i = \\alpha + \\beta x_i\\] - The parameters of the normal distribution are the mean μ and the standard deviation σ (or the variance \\(\\sigma^2\\))]"
   },
   {
     "objectID": "9-logistic.html#glm-components",
