@@ -2152,8 +2152,8 @@
     "objectID": "9-logistic.html#this-whole-semester-has-been-linear-regression-on-steroids",
     "href": "9-logistic.html#this-whole-semester-has-been-linear-regression-on-steroids",
     "title": "Logistic",
-    "section": "This whole semester has been linear regression (on steroids)",
-    "text": "This whole semester has been linear regression (on steroids)\n\nWe’ve had continuous IVs (regression)\nWe’ve had categorical IVs (factorial ANOVA)\nWe’ve had a mixture of continuous/categorical IVs (more regression)\nBut we’ve never had a DV variable that is categorical… in comes Logistic Regression"
+    "section": "",
+    "text": "We’ve had continuous IVs (regression)\nWe’ve had categorical IVs (factorial ANOVA)\nWe’ve had a mixture of continuous/categorical IVs (more regression)\nBut we’ve never had a DV variable that is categorical… in comes Logistic Regression"
   },
   {
     "objectID": "9-logistic.html#linear-regression",
@@ -2188,7 +2188,7 @@
     "href": "9-logistic.html#logistic-regression-1",
     "title": "Logistic",
     "section": "Logistic Regression",
-    "text": "Logistic Regression\nUsed when your DV is binary (0,1)\n- Clinical diagnosis\n- Disease prevalence\n- Experiences (Yes/No) - Correct/Incorrect"
+    "text": "Logistic Regression\nUsed when your DV is binary (0,1)\n- Clinical diagnosis\n- Disease prevalence\n- Experiences (Yes/No) - Correct/Incorrect\n\nThe mean of the distribution is the same as the proportion of 1’s in the distribution. - Out of 100 people, 27 have PTSD (1) and 73 do not have PTSD (0) - The mean of the distribution is .27 - Probability of getting a 1 is .27\n\nIf we plotted these points, they are either 1’s or 0’s\n\n\nIf we plotted our OLS regression line. It doesn’t make sense! Predicted values can go above 1 or below 0…yikes\n\n\nInstead, we fit this non-linear function. None of our data fall on the line!"
   },
   {
     "objectID": "9-logistic.html#where-is-the-line",
@@ -2230,7 +2230,7 @@
     "href": "9-logistic.html#generalized-linear-models-1",
     "title": "Logistic",
     "section": "Generalized linear models",
-    "text": "Generalized linear models\n\nGaussian model is \\[y_i \\sim  N(\\mu_i, \\sigma)\\]\n\n\\[\\mu_i = \\alpha + \\beta x_i\\] - The parameters of the normal distribution are the mean μ and the standard deviation σ (or the variance \\(\\sigma^2\\))]"
+    "text": "Generalized linear models\n\nGaussian model is \\[y_i \\sim  N(\\mu_i, \\sigma)\\]\n\n\\[\\mu_i = \\alpha + \\beta x_i\\] - The parameters of the normal distribution are the mean μ and the standard deviation σ (or the variance \\(\\sigma^2\\))]\n\n\nBinomial outcome is \\[y_i \\sim  Binomial(n, p_i)\\]\n\n\\[f(p_i) = \\alpha + \\beta x_i\\] - n stands for the number of times the experiment runs. - p represents the probability of one specific outcome.]"
   },
   {
     "objectID": "9-logistic.html#glm-components",
@@ -2258,14 +2258,14 @@
     "href": "9-logistic.html#sigmoid-function",
     "title": "Logistic",
     "section": "Sigmoid function",
-    "text": "Sigmoid function\n\\[f(x) = \\frac{1}{1+e^{-X}}\\]\n… where \\(e\\) is Euler’s number\n\nexp(1)\n\n[1] 2.718282"
+    "text": "Sigmoid function\n\\[f(x) = \\frac{1}{1+e^{-X}}\\]\n… where \\(e\\) is Euler’s number\n\nexp(1)\n\n[1] 2.718282\n\n\n\nThe y-axis is the “rolling mean” of the DV (or the proportion of 1’s). This logistic curve relates \\(X\\) (the IV) to our \\(P(\\bar{Y})\\)"
   },
   {
     "objectID": "9-logistic.html#sigmoid-function-cont.",
     "href": "9-logistic.html#sigmoid-function-cont.",
     "title": "Logistic",
     "section": "Sigmoid function (cont.)",
-    "text": "Sigmoid function (cont.)\nFor the Sigmoid function, as x approaches \\(\\infty\\), it reaches a natural limit at 1.\nAs x approaches \\(-\\infty\\), it reaches a natural limit of 0\nThis all keeps the limits within the 0, 1 range."
+    "text": "Sigmoid function (cont.)\nFor the Sigmoid function, as x approaches \\(\\infty\\), it reaches a natural limit at 1.\nAs x approaches \\(-\\infty\\), it reaches a natural limit of 0\nThis all keeps the limits within the 0, 1 range.\n\n\\[f(x) = \\frac{1}{1+e^{-X}}\\] \\[\\hat{p} = \\frac{1}{1+e^{-b_{0}+b_{1}X}}\\] - The form of the logistic function is still nonlinear (because probabilities can only range from 0 to 1)\n\nSince it’s nonlinear, \\(b\\) can’t be interpreted as easily as we’ve been doing with OLS regression.\nSo in order to interpret our model parameter, we need to convert to odds\n\n\nwhere P is the probability of a 1 (the proportion of 1s, the mean of Y), e is the base of the natural logarithm (about 2.718) and a and b are the parameters of the model. The value of a yields P when X is zero, and b adjusts how quickly the probability changes with changing X a single unit (we can have standardized and unstandardized b weights in logistic regression, just as in ordinary linear regression). Because the relation between X and P is nonlinear, b does not have a straightforward interpretation in this model as it does in ordinary linear regression"
   },
   {
     "objectID": "9-logistic.html#odds",
@@ -2356,7 +2356,7 @@
     "href": "9-logistic.html#glm-in-r",
     "title": "Logistic",
     "section": "GLM in R",
-    "text": "GLM in R\n\nglm(formula,\n    family = gaussian(link=\"identity\"), #&lt;&lt;\n    data,\n    weights,\n    subset,\n    na.action,\n    start = NULL,\n    etastart,\n    mustart,\n    offset, \n    control = glm.control(...),\n    model = TRUE,\n    method = ”glm.fit”,\n    x = FALSE, \n    y = TRUE,\n    contrasts = NULL, ...)"
+    "text": "GLM in R\n\nglm(formula,\n    family = gaussian(link=\"identity\"), #&lt;&lt;\n    data,\n    weights,\n    subset,\n    na.action,\n    start = NULL,\n    etastart,\n    mustart,\n    offset, \n    control = glm.control(...),\n    model = TRUE,\n    method = ”glm.fit”,\n    x = FALSE, \n    y = TRUE,\n    contrasts = NULL, ...)\n\n\nThe family argument specifies the distribution. In R, families have default links."
   },
   {
     "objectID": "9-logistic.html#glm-in-r-1",
@@ -2391,7 +2391,7 @@
     "href": "9-logistic.html#example",
     "title": "Logistic",
     "section": "Example",
-    "text": "Example\n\n# 1 = not premature\nmortality\n\n# A tibble: 300 × 4\n   Intelligence_Self Intelligence_Mate premature.d NOT.premature\n               &lt;dbl&gt;             &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;\n 1                22                19 normal                  1\n 2                22                18 normal                  1\n 3                21                21 normal                  1\n 4                22                17 normal                  1\n 5                19                18 normal                  1\n 6                19                20 premature               0\n 7                16                18 normal                  1\n 8                15                11 premature               0\n 9                16                21 normal                  1\n10                19                22 normal                  1\n# ℹ 290 more rows"
+    "text": "Example\n\n# 1 = not premature\nmortality\n\n# A tibble: 300 × 4\n   Intelligence_Self Intelligence_Mate premature.d NOT.premature\n               &lt;dbl&gt;             &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;\n 1                22                19 normal                  1\n 2                22                18 normal                  1\n 3                21                21 normal                  1\n 4                22                17 normal                  1\n 5                19                18 normal                  1\n 6                19                20 premature               0\n 7                16                18 normal                  1\n 8                15                11 premature               0\n 9                16                21 normal                  1\n10                19                22 normal                  1\n# ℹ 290 more rows\n\n\n\n\ndeath.1 &lt;- lm(NOT.premature ~ Intelligence_Self , data = mortality)\nsummary(death.1)\n\n\nCall:\nlm(formula = NOT.premature ~ Intelligence_Self, data = mortality)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-0.9030  0.1084  0.1538  0.1907  0.3355 \n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       0.641769   0.098636   6.506 3.25e-10 ***\nIntelligence_Self 0.011357   0.005807   1.956   0.0514 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.3745 on 298 degrees of freedom\nMultiple R-squared:  0.01267,   Adjusted R-squared:  0.009362 \nF-statistic: 3.826 on 1 and 298 DF,  p-value: 0.05141\n\n\n\n\ndeath.2 &lt;- glm(NOT.premature ~ Intelligence_Self , data = mortality)\nsummary(death.2)\n\n\nCall:\nglm(formula = NOT.premature ~ Intelligence_Self, data = mortality)\n\nCoefficients:\n                  Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)       0.641769   0.098636   6.506 3.25e-10 ***\nIntelligence_Self 0.011357   0.005807   1.956   0.0514 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for gaussian family taken to be 0.1402466)\n\n    Null deviance: 42.330  on 299  degrees of freedom\nResidual deviance: 41.793  on 298  degrees of freedom\nAIC: 266.05\n\nNumber of Fisher Scoring iterations: 2\n\n\n\n\ndeath.3 &lt;- glm(NOT.premature ~ Intelligence_Self,\n               family = binomial, data = mortality)\nsummary(death.3)\n\n\nCall:\nglm(formula = NOT.premature ~ Intelligence_Self, family = binomial, \n    data = mortality)\n\nCoefficients:\n                  Estimate Std. Error z value Pr(&gt;|z|)  \n(Intercept)        0.28695    0.67490   0.425   0.6707  \nIntelligence_Self  0.08012    0.04143   1.934   0.0532 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 273.53  on 299  degrees of freedom\nResidual deviance: 269.75  on 298  degrees of freedom\nAIC: 273.75\n\nNumber of Fisher Scoring iterations: 4"
   },
   {
     "objectID": "9-logistic.html#interpretation",
@@ -2412,7 +2412,7 @@
     "href": "9-logistic.html#probit",
     "title": "Logistic",
     "section": "Probit",
-    "text": "Probit\nWe can have different link functions. When your response variable (DV) is truly binary – the data generating process generates legit binary data – logit is your pick."
+    "text": "Probit\nWe can have different link functions. When your response variable (DV) is truly binary – the data generating process generates legit binary data – logit is your pick.\n\nWhat if your response variable is binary, but the underlying construct you are trying to measure is likely Gaussian? Ex: depressed vs. not depressed. But the underlying latent construct is continuous. More appropriate then is the probit link function.\nStack exchange thread if you’re going down this route"
   },
   {
     "objectID": "9-logistic.html#probit-1",
@@ -2420,5 +2420,446 @@
     "title": "Logistic",
     "section": "Probit",
     "text": "Probit\n\ndeath.4 &lt;- glm(NOT.premature ~ Intelligence_Self,\n        family = binomial(link = \"probit\"), data = mortality)\nsummary(death.4)\n\n\nCall:\nglm(formula = NOT.premature ~ Intelligence_Self, family = binomial(link = \"probit\"), \n    data = mortality)\n\nCoefficients:\n                  Estimate Std. Error z value Pr(&gt;|z|)  \n(Intercept)        0.21961    0.38376   0.572   0.5671  \nIntelligence_Self  0.04513    0.02319   1.946   0.0516 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 273.53  on 299  degrees of freedom\nResidual deviance: 269.72  on 298  degrees of freedom\nAIC: 273.72\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "9-logistic.html",
+    "href": "9-logistic.html",
+    "title": "Logistic",
+    "section": "",
+    "text": "We’ve had continuous IVs (regression)\nWe’ve had categorical IVs (factorial ANOVA)\nWe’ve had a mixture of continuous/categorical IVs (more regression)\nBut we’ve never had a DV variable that is categorical… in comes Logistic Regression"
+  },
+  {
+    "objectID": "12-ml.html#today",
+    "href": "12-ml.html#today",
+    "title": "ML-2",
+    "section": "Today",
+    "text": "Today\n\nStart looking at topics related to machine learning"
+  },
+  {
+    "objectID": "12-ml.html#explanation-vs.-prediction",
+    "href": "12-ml.html#explanation-vs.-prediction",
+    "title": "ML-2",
+    "section": "Explanation vs. Prediction",
+    "text": "Explanation vs. Prediction\nExplanation: describe causal underpinnings of behaviors/outcomes\nPrediction: Accurately forecast behaviors/outcomes\nSimilarities.\n\nBoth are goals of science.\nGood predictions can help us develop theories of explanation and vice versa"
+  },
+  {
+    "objectID": "12-ml.html#explanation-vs.-prediction-1",
+    "href": "12-ml.html#explanation-vs.-prediction-1",
+    "title": "ML-2",
+    "section": "Explanation vs. Prediction",
+    "text": "Explanation vs. Prediction\nStatistical Tensions\n\nStatistical models that accurately describe causal truths often have poor prediction and are complex\nPredictive models are often very different from the “true”, underlying data generating processes"
+  },
+  {
+    "objectID": "12-ml.html#explanation-vs.-prediction-2",
+    "href": "12-ml.html#explanation-vs.-prediction-2",
+    "title": "ML-2",
+    "section": "Explanation vs. Prediction",
+    "text": "Explanation vs. Prediction\n\nWhat do we do in Psychology and Neuroscience?\nWhat about regression?\n\nPoint of Yarkoni & Westfall (2017) - How far have we really come in the past 10 years? 20 years? 30 years? …not as far as we’d like\n\nWe should spend more time and resources developing predictive models than we currently do"
+  },
+  {
+    "objectID": "12-ml.html#maybe-helpful-definitions",
+    "href": "12-ml.html#maybe-helpful-definitions",
+    "title": "ML-2",
+    "section": "Maybe Helpful Definitions",
+    "text": "Maybe Helpful Definitions\nMachine Learning (ML) is the process of feeding previous observations into a computer and using the computer to generate predictions for new observations. AKA:\n\nmachine inference\npattern recognition (Google Photos!)\nstatistical estimation\nprediction modeling\nstatistical learning (ish)"
+  },
+  {
+    "objectID": "12-ml.html#maybe-helpful-definitions-1",
+    "href": "12-ml.html#maybe-helpful-definitions-1",
+    "title": "ML-2",
+    "section": "Maybe Helpful Definitions",
+    "text": "Maybe Helpful Definitions\nTraining occurs by extracting patterns from the observed data; think of this as learning\nTesting occurs by verifying predictions on previously unobserved data; think of this as evaluating\nArtificial Intelligence is not the same as machine learning. AI is the simulation of human intelligence by computers; AI systems are generally trained with machine learning approaches."
+  },
+  {
+    "objectID": "12-ml.html#some-more-definitions",
+    "href": "12-ml.html#some-more-definitions",
+    "title": "ML-2",
+    "section": "Some more definitions",
+    "text": "Some more definitions\nSupervised Learning: using known patterns between input and output observations to train a mapping between the two\n\nRegression! learning the mapping between a continuous input feature variable and a continuous output target variable\nClassification: learning the mapping between a continuous input feature variable and a categorical output target variable (i.e., a label)"
+  },
+  {
+    "objectID": "12-ml.html#some-more-definitions-1",
+    "href": "12-ml.html#some-more-definitions-1",
+    "title": "ML-2",
+    "section": "Some more definitions",
+    "text": "Some more definitions\nUnsupervised Learning: determining patterns in observations without guiding referents\n\nDimensionality Reduction: decreasing the overall number of features considered in a learning procedure (i.e., PCA, ICA etc.)\nClustering: grouping features together that are similar as determined by some metric"
+  },
+  {
+    "objectID": "12-ml.html#wash-u",
+    "href": "12-ml.html#wash-u",
+    "title": "ML-2",
+    "section": "@Wash U",
+    "text": "@Wash U\n\nReinforcement Learning: determining a mapping between input and output observations using only a measure of training quality\nML classes in CS department\nWouter Kool for reinforcement learning\nACCSN with Dennis Barbour and myself for high level discussions on these topics\nPoli Sci department for dealing with categorical outcomes"
+  },
+  {
+    "objectID": "12-ml.html#machine-learning-algorithms",
+    "href": "12-ml.html#machine-learning-algorithms",
+    "title": "ML-2",
+    "section": "Machine Learning Algorithms",
+    "text": "Machine Learning Algorithms\n\n\n\nordinary least squares linear regression\nlogistic regression\nk-means clustering\nnearest neighbor\nnaive Bayes\nridge regression\nLASSO regression\nsupport vector machine\n\n\n\nrandom forest\nGaussian process estimator\nmultilayer perceptron (deep net)\nconvolutional network\nrecurrent network\ngeneralized adversarial network"
+  },
+  {
+    "objectID": "12-ml.html#some-terminology",
+    "href": "12-ml.html#some-terminology",
+    "title": "ML-2",
+    "section": "Some terminology",
+    "text": "Some terminology\nOverfitting is when we mistakenly fit sample-specific noise as if it were actually a signal.\n\nIf our model has a \\(R^2 = .9\\), we do an excellent job of explaining variance in our sample.\nOLS models tend to be overfit because they minimize error for a specific sample"
+  },
+  {
+    "objectID": "12-ml.html#bias-and-variance",
+    "href": "12-ml.html#bias-and-variance",
+    "title": "ML-2",
+    "section": "Bias and Variance",
+    "text": "Bias and Variance\nBias refers to systematically over- or under-estimating parameters.\nVariance refers to how much estimates tend to jump around\nBias-Variance Tradeoff we can reduce variance around our estimates but at the expense of increasing bias of estimates and vice versa\nUnderfitting means we can’t capture a relationship at all – not as big of a problem for us"
+  },
+  {
+    "objectID": "12-ml.html#cross-validation",
+    "href": "12-ml.html#cross-validation",
+    "title": "ML-2",
+    "section": "Cross-validation",
+    "text": "Cross-validation\nCross-validation is a family of techniques that involve testing and training a model on different samples of data."
+  },
+  {
+    "objectID": "12-ml.html#cross-validation-hold-out-samples",
+    "href": "12-ml.html#cross-validation-hold-out-samples",
+    "title": "ML-2",
+    "section": "Cross-validation: Hold-out Samples",
+    "text": "Cross-validation: Hold-out Samples\n\n\n\nSplit into training and testing sets\nFit your model on the training set\nPredict outputs for your testing set\n\n\nPros\n\nStraightforward; computationally easy\n\nCons\n\nWhich data go into which set?\nWhat if the vast majority of group A fall into the training set and the vast majority of group B fall into the testing set?"
+  },
+  {
+    "objectID": "12-ml.html#k-fold-cross-validation",
+    "href": "12-ml.html#k-fold-cross-validation",
+    "title": "ML-2",
+    "section": "K-fold Cross-validation",
+    "text": "K-fold Cross-validation\n\nMake k subsets of your data\nRepeat the hold-out method of test/train, but do it k times\nGet the model fit for all k iterations; take the average model fit"
+  },
+  {
+    "objectID": "12-ml.html#k-fold-cross-validation-1",
+    "href": "12-ml.html#k-fold-cross-validation-1",
+    "title": "ML-2",
+    "section": "K-fold Cross-validation",
+    "text": "K-fold Cross-validation\nPros\n\nDoesn’t matter much which data points fall into test or train since each subset can be both a test and a training set\nThe more folds you do (larger k), the more you are able to decrease your variance around your averaged model fit\n\nCons\n\nCan take a decent amount of computational power, depending on the dataset"
+  },
+  {
+    "objectID": "12-ml.html#leave-one-out-cross-validation",
+    "href": "12-ml.html#leave-one-out-cross-validation",
+    "title": "ML-2",
+    "section": "Leave-One-Out Cross-validation",
+    "text": "Leave-One-Out Cross-validation\n\nSame as k-fold, but now k is equal to your \\(N\\)\n\nPros\n\nGood estimations\n\nCons\n\nEven more computationally expensive\nEspecially if using “big data”"
+  },
+  {
+    "objectID": "12-ml.html#a-brief-aside",
+    "href": "12-ml.html#a-brief-aside",
+    "title": "ML-2",
+    "section": "A brief aside:",
+    "text": "A brief aside:\nNewer package called tidymodels is better for machine learning, but requires many more steps. For now, this is the simpler method.\nR vs. Python 🐍 . R is excellent for statistics and visualizing data. Most of what we do in Psychology. Python is better for machine learning and is more of a full suite language.\nIf you’re going hard with ML, use tidymodels or Python."
+  },
+  {
+    "objectID": "12-ml.html#example-10-fold-cross-validation",
+    "href": "12-ml.html#example-10-fold-cross-validation",
+    "title": "ML-2",
+    "section": "Example: 10-fold cross validation",
+    "text": "Example: 10-fold cross validation\n\n\nCode\nlibrary(caret)\n# set control parameters\nctrl &lt;- trainControl(method=\"cv\", number=10)\n# use train() instead of lm()\ncv.model &lt;- train(Stress ~ Anxiety*Support*group, \n               data = stress.data, \n               trControl=ctrl, # what are the control parameters\n               method=\"lm\") # what kind of model\ncv.model\n\n\nLinear Regression \n\n118 samples\n  3 predictor\n\nNo pre-processing\nResampling: Cross-Validated (10 fold) \nSummary of sample sizes: 106, 106, 107, 106, 106, 107, ... \nResampling results:\n\n  RMSE      Rsquared   MAE     \n  1.514388  0.3928256  1.215193\n\nTuning parameter 'intercept' was held constant at a value of TRUE"
+  },
+  {
+    "objectID": "12-ml.html#cross-validation-summary",
+    "href": "12-ml.html#cross-validation-summary",
+    "title": "ML-2",
+    "section": "Cross-Validation Summary",
+    "text": "Cross-Validation Summary\n\nTempers your estimates to protect against overfitting\nYou do not need fancy ML algorithms. You can do this with your classic regression!\nIf your whole sample is not representative, this will not save you"
+  },
+  {
+    "objectID": "12-ml.html#regularization",
+    "href": "12-ml.html#regularization",
+    "title": "ML-2",
+    "section": "Regularization",
+    "text": "Regularization\nPenalizing a model as it grows more complex.\n\nUsually involves shrinking coefficient estimates – the model will fit less well in-sample but may be more predictive"
+  },
+  {
+    "objectID": "12-ml.html#lasso-regression",
+    "href": "12-ml.html#lasso-regression",
+    "title": "ML-2",
+    "section": "LASSO Regression",
+    "text": "LASSO Regression\n\nThe glmnet package has the tools for LASSO regression.\nOne small complication is that the package uses matrix algebra, so you need to feed it a matrix of predictors – specifically, instead of saying “find the interaction between A and B”, you need to create the variable that represents this term.\nLuckily, the function model.matrix() can do this for you."
+  },
+  {
+    "objectID": "12-ml.html#what-value-of-lambda-to-choose",
+    "href": "12-ml.html#what-value-of-lambda-to-choose",
+    "title": "ML-2",
+    "section": "What value of \\(\\lambda\\) to choose?",
+    "text": "What value of \\(\\lambda\\) to choose?\nLooks like coefficients 1, 2, and 3 have high values even with shrinkage.\n\n\nCode\nplot(lasso.mod, xvar = \"dev\", label = T, )"
+  },
+  {
+    "objectID": "12-ml.html#what-value-of-lambda-to-choose-1",
+    "href": "12-ml.html#what-value-of-lambda-to-choose-1",
+    "title": "ML-2",
+    "section": "What value of \\(\\lambda\\) to choose?",
+    "text": "What value of \\(\\lambda\\) to choose?\nLooking for \\(\\lambda\\) values where those coefficients are still different from 0.\n\n\nCode\nplot(lasso.mod, xvar = \"lambda\", label = TRUE, cex = 8)"
+  },
+  {
+    "objectID": "12-ml.html#summary-yarkoni-and-westfall-2017",
+    "href": "12-ml.html#summary-yarkoni-and-westfall-2017",
+    "title": "ML-2",
+    "section": "Summary: Yarkoni and Westfall (2017)",
+    "text": "Summary: Yarkoni and Westfall (2017)\nBig Data * Reduce the likelihood of overfitting – more data means less error\nCross-validation * Is my model overfit?\nRegularization * Constrain the model to be less overfit"
+  },
+  {
+    "objectID": "11-ml.html#today",
+    "href": "11-ml.html#today",
+    "title": "bootstrapping",
+    "section": "Today",
+    "text": "Today\n\nResampling methods"
+  },
+  {
+    "objectID": "11-ml.html#first.-sampling",
+    "href": "11-ml.html#first.-sampling",
+    "title": "bootstrapping",
+    "section": "First. Sampling",
+    "text": "First. Sampling\nIt is impossible to survey every person in the population we are interested in, so we often take a “random sample” from the population and calculate a sample statistic (e.g., mean, median).\nA lot of our statistics follow well-defined distributions (e.g., normal distribution), and we use the properties of these distributions to estimate the population parameter."
+  },
+  {
+    "objectID": "11-ml.html#problems-with-sampling",
+    "href": "11-ml.html#problems-with-sampling",
+    "title": "bootstrapping",
+    "section": "Problems with Sampling",
+    "text": "Problems with Sampling\nSingle Estimate of the Population Parameter\n\nEstimate the population mean\nSampling distribution of mean derived from sample statistics\nBuilt a 95% confidence interval around the sample mean\nWe’ve been relying on a single estimate of the population parameter (except for with Bayesian methods)."
+  },
+  {
+    "objectID": "11-ml.html#introduction-to-resampling",
+    "href": "11-ml.html#introduction-to-resampling",
+    "title": "bootstrapping",
+    "section": "Introduction to Resampling",
+    "text": "Introduction to Resampling\nA statistical technique that involves re-estimation of the population parameter by repeatedly drawing samples from the original sample"
+  },
+  {
+    "objectID": "11-ml.html#reasons-for-resampling",
+    "href": "11-ml.html#reasons-for-resampling",
+    "title": "bootstrapping",
+    "section": "Reasons for Resampling",
+    "text": "Reasons for Resampling\n\nReduce bias of the estimate by using multiple samples instead of one\nBetter sense of precision of the estimated population parameter\nWe do not need to make assumptions about the population distribution (e.g., when we perform two samples t-test, for example, we make the assumption that the populations from which the samples are drawn are normally distributed)\nSample does not have to be large"
+  },
+  {
+    "objectID": "11-ml.html#types-of-resampling",
+    "href": "11-ml.html#types-of-resampling",
+    "title": "bootstrapping",
+    "section": "Types of Resampling",
+    "text": "Types of Resampling\n\nBootstrapping\nJackknife method (just a glimpse)\nPermutation testing (just a glimpse)"
+  },
+  {
+    "objectID": "11-ml.html#bootstrapping",
+    "href": "11-ml.html#bootstrapping",
+    "title": "bootstrapping",
+    "section": "Bootstrapping",
+    "text": "Bootstrapping\nBootstrapping is a method where we rely entirely on the sample that we have at hand.\n\nWe randomly sample within the sample (with replacement)\nCompute the estimator of interest in order to…\nBuild an empirical distribution of that test statistic."
+  },
+  {
+    "objectID": "11-ml.html#illustration-of-bootstrapping",
+    "href": "11-ml.html#illustration-of-bootstrapping",
+    "title": "bootstrapping",
+    "section": "Illustration of Bootstrapping",
+    "text": "Illustration of Bootstrapping\nImagine we are trying to estimate the height of a cohort of friends. But you only have 6. Specifically, these 6 friends."
+  },
+  {
+    "objectID": "11-ml.html#repeat",
+    "href": "11-ml.html#repeat",
+    "title": "bootstrapping",
+    "section": "Repeat",
+    "text": "Repeat\n\n\nCode\n(sample1 = sample(friends, size = 6, replace = T)); paste('Mean height of this sample:', mean(heights[sample1]))\n\n\n[1] \"Ross\"     \"Chandler\" \"Phoebe\"   \"Joey\"     \"Monica\"   \"Chandler\"\n\n\n[1] \"Mean height of this sample: 171.833333333333\"\n\n\n\n\nCode\n(sample1 = sample(friends, size = 6, replace = T)); paste('Mean height of this sample:', mean(heights[sample1]))\n\n\n[1] \"Ross\"   \"Monica\" \"Monica\" \"Joey\"   \"Ross\"   \"Phoebe\"\n\n\n[1] \"Mean height of this sample: 171.333333333333\"\n\n\n\n\nCode\n(sample1 = sample(friends, size = 6, replace = T)); paste('Mean height of this sample:', mean(heights[sample1]))\n\n\n[1] \"Ross\"     \"Joey\"     \"Chandler\" \"Rachel\"   \"Ross\"     \"Monica\"  \n\n\n[1] \"Mean height of this sample: 171.5\""
+  },
+  {
+    "objectID": "11-ml.html#bootstrap-10000-times",
+    "href": "11-ml.html#bootstrap-10000-times",
+    "title": "bootstrapping",
+    "section": "Bootstrap 10,000 Times",
+    "text": "Bootstrap 10,000 Times\n\n\nCode\n# When resampling, it is generally a good practice to set random seed\n# for full reproducibility of the resampling process\nset.seed(5067)\n\nboot &lt;- 10000 # Set number of bootstrap samples\n\nfriends = c('Monica', 'Rachel', 'Ross', 'Joey', 'Phoebe', 'Chandler')\nheights &lt;- c(165, 165, 178, 170, 172, 173)\n\nsample_means &lt;- NULL # Initialize list to store sample means"
+  },
+  {
+    "objectID": "11-ml.html#bootstrap-10000-times-1",
+    "href": "11-ml.html#bootstrap-10000-times-1",
+    "title": "bootstrapping",
+    "section": "Bootstrap 10,000 Times",
+    "text": "Bootstrap 10,000 Times\n\n\nCode\n# When resampling, it is generally a good practice to set random seed\n# for full reproducibility of the resampling process\nset.seed(5067)\n\nboot &lt;- 10000 # Set number of bootstrap samples\n\nfriends = c('Monica', 'Rachel', 'Ross', 'Joey', 'Phoebe', 'Chandler')\nheights &lt;- c(165, 165, 178, 170, 172, 173)\n\nsample_means &lt;- NULL # Initialize list to store sample means\n\n# Append the mean of bootstrap sample heights to *sample_means*\nfor(i in 1:boot){ #&lt;&lt;\n  this_sample &lt;- sample(heights, size = length(heights), replace = T) #&lt;&lt;\n  sample_means &lt;- c(sample_means, mean(this_sample)) #&lt;&lt;\n} #&lt;&lt;"
+  },
+  {
+    "objectID": "11-ml.html#comparison",
+    "href": "11-ml.html#comparison",
+    "title": "bootstrapping",
+    "section": "Comparison",
+    "text": "Comparison\n\n\nCode\nlibrary(ggpubr)\nmu = mean(heights)\nsem = sd(heights)/sqrt(length(heights))\ncv_t = qt(p = .975, df = length(heights)-1)\n\nbootstrapped = data.frame(means = sample_means) %&gt;%\n  ggplot(aes(x = means)) + \n  geom_histogram(color = \"white\") +\n  geom_density() +\n  geom_vline(aes(xintercept = mean(sample_means), color = \"mean\"), \n             linewidth = 2) +\n  geom_vline(aes(xintercept = median(sample_means), color = \"median\"),\n             linewidth = 2) +\n  geom_vline(aes(xintercept = quantile(sample_means, probs = .025), color = \"Lower 2.5%\"), \n             linewidth = 2) +\n    geom_vline(aes(xintercept = quantile(sample_means, probs = .975), color = \"Upper 2.5%\"), \n               linewidth = 2) +\n  scale_x_continuous(limits = c(mu-3*sem, mu+3*sem))+\n  ggtitle(\"Bootstrapped distribution\") +\n  cowplot::theme_cowplot()\n\nfrom_prob = data.frame(means = seq(from = min(sample_means), to = max(sample_means))) %&gt;%\n  ggplot(aes(x = means)) +\n  stat_function(fun = function(x) dnorm(x, m = mu, sd = sem)) + \n  geom_vline(aes(xintercept = mean(heights), color = \"mean\"), \n             linewidth = 2) +\n  geom_vline(aes(xintercept = median(heights), color = \"median\"), \n             linewidth = 2) +\n  geom_vline(aes(xintercept = mu-cv_t*sem, color = \"Lower 2.5%\"), \n             linewidth = 2) +\n  geom_vline(aes(xintercept = mu+cv_t*sem, color = \"Upper 2.5%\"), \n             linewidth = 2) + \n  scale_x_continuous(limits = c(mu-3*sem, mu+3*sem))+  \n  ggtitle(\"Distribution from probability theory\") +\n  cowplot::theme_cowplot()\n\nggarrange(bootstrapped, from_prob, ncol = 1)"
+  },
+  {
+    "objectID": "11-ml.html#example-2",
+    "href": "11-ml.html#example-2",
+    "title": "bootstrapping",
+    "section": "Example 2",
+    "text": "Example 2\nCentral tendency and variability of 216 reaction times\n\n\nCode\n# Set random seed before generating data\nset.seed(5067)\n\n# The observations generally follow the F Distribution + random noise\nresponse = rf(n = 216, 3, 50) \nresponse = response * 500 + rnorm(n = 216, mean = 200, sd = 100)"
+  },
+  {
+    "objectID": "11-ml.html#visualize-data",
+    "href": "11-ml.html#visualize-data",
+    "title": "bootstrapping",
+    "section": "Visualize Data",
+    "text": "Visualize Data\n\n\nCode\nlibrary(tidyverse)\n\nset.seed(1048596)\nresponse = rf(n = 216, 3, 50) \nresponse = response * 500 + rnorm(n = 216, mean = 200, sd = 100)\n\nvalues = quantile(response, \n                  probs = c(.025, .5, .975))\nmean_res = mean(response)\n\ndata.frame(x = response) %&gt;%\n  ggplot(aes(x)) +\n  geom_histogram(aes(y = ..density..), \n                 binwidth = 150, \n                 fill = \"lightgrey\",\n                 color = \"black\")+\n  geom_density()+\n  geom_vline(aes(xintercept = values[1], \n                 color = \"Lower 2.5%\"), linewidth = 2)+\n  geom_vline(aes(xintercept = values[2], color = \"Median\"), \n             linewidth = 2)+\n  geom_vline(aes(xintercept = values[3], color = \"Upper 2.5%\"),\n             linewidth = 2)+\n  geom_vline(aes(xintercept = mean_res, color = \"Mean\"), \n             linewidth = 2)+\n  labs(x = \"Reponse time (ms)\", title = \"Response Time Distribution\") + cowplot::theme_cowplot(font_size = 20)"
+  },
+  {
+    "objectID": "11-ml.html#distribution-of-means",
+    "href": "11-ml.html#distribution-of-means",
+    "title": "bootstrapping",
+    "section": "Distribution of Means",
+    "text": "Distribution of Means\n\n\nCode\ndata.frame(means = response_means) %&gt;%\n  ggplot(aes(x = means)) + \n  geom_histogram(color = \"white\") +\n  geom_density() +\n  geom_vline(aes(xintercept = mean(response_means), color = \"mean\"),\n             linewidth = 2) +\n  geom_vline(aes(xintercept = median(response_means), color = \"median\"),\n             linewidth = 2) +\n  geom_vline(aes(xintercept = quantile(response_means, probs = .025), \n                 color = \"Lower 2.5%\"), linewidth = 2) +\n  geom_vline(aes(xintercept = quantile(response_means, probs = .975), \n                 color = \"Upper 2.5%\"), linewidth = 2) +\n  cowplot::theme_cowplot()"
+  },
+  {
+    "objectID": "11-ml.html#other-estimators",
+    "href": "11-ml.html#other-estimators",
+    "title": "bootstrapping",
+    "section": "Other Estimators?",
+    "text": "Other Estimators?\nYou can bootstrap estimates and 95% confidence intervals for any statistics you’ll need to estimate.\nThings you should learn how to do in R:\n\nlearn to read a for loop.\nlearn to write your own function."
+  },
+  {
+    "objectID": "11-ml.html#another-example",
+    "href": "11-ml.html#another-example",
+    "title": "bootstrapping",
+    "section": "Another Example",
+    "text": "Another Example\nIn this district, Verizon provides line service to both Verizon and non-Verizon customers. Here, we are going to look at a dataset containing service waiting times for Verizon customers (ILEC) and non-Verizon customers (CLEC). We are interested in whether waiting time of non-Verizon customers is longer than that of Verizon customers.\n\n\nCode\nVerizon = read.csv(\"https://raw.githubusercontent.com/shellyc26/psy5067/master/data/Verizon.csv\")\n\n\n\nhead(Verizon, 3)\n\n  Time Group\n1 17.5  ILEC\n2  2.4  ILEC\n3  0.0  ILEC"
+  },
+  {
+    "objectID": "11-ml.html#inspect-verizon-data-1",
+    "href": "11-ml.html#inspect-verizon-data-1",
+    "title": "bootstrapping",
+    "section": "Inspect Verizon Data 1",
+    "text": "Inspect Verizon Data 1\n\n\nCode\nVerizon %&gt;%\n  ggplot(aes(x = Time, fill = Group)) + \n  geom_histogram(bins = 30) + \n  guides(fill = \"none\") +\n  facet_wrap(~Group, scales = \"free_y\")\n\n\n\n\nLeft is the distribution of waiting times of Non-Verizon (CLEC) customers and right is the distribution of waiting times of Verizon (ILEC) customers"
+  },
+  {
+    "objectID": "11-ml.html#inspect-verizon-data-2",
+    "href": "11-ml.html#inspect-verizon-data-2",
+    "title": "bootstrapping",
+    "section": "Inspect Verizon Data 2",
+    "text": "Inspect Verizon Data 2\n\n\nCode\nVerizon %&gt;%\n  ggplot(aes(x = Time, fill = Group)) + \n  geom_histogram(bins = 50, position = \"dodge\") + \n  guides(fill = \"none\") +\n  theme_bw()\n\n\n\n\n\nCode\ntable(Verizon$Group)\n\n\n\nCLEC ILEC \n  23 1664"
+  },
+  {
+    "objectID": "11-ml.html#analysis-plan-and-justification",
+    "href": "11-ml.html#analysis-plan-and-justification",
+    "title": "bootstrapping",
+    "section": "Analysis Plan and Justification",
+    "text": "Analysis Plan and Justification\nIt seems that the data do not meet the typical assumptions of an independent samples \\(t\\)-test.\nIn this case, to estimate mean differences we can use bootstrapping.\nHere, we’ll resample with replacement separately from the two samples and calculate their difference in means."
+  },
+  {
+    "objectID": "11-ml.html#one-solution",
+    "href": "11-ml.html#one-solution",
+    "title": "bootstrapping",
+    "section": "One Solution",
+    "text": "One Solution\n\nset.seed(5067)\nboot &lt;- 10000\ndifference &lt;- NULL\n\nsubsample_CLEC = Verizon %&gt;% filter(Group == \"CLEC\") #&lt;&lt;\nsubsample_ILEC = Verizon %&gt;% filter(Group == \"ILEC\") #&lt;&lt;"
+  },
+  {
+    "objectID": "11-ml.html#one-solution-1",
+    "href": "11-ml.html#one-solution-1",
+    "title": "bootstrapping",
+    "section": "One Solution",
+    "text": "One Solution\n\nset.seed(5067)\nboot &lt;- 10000\ndifference &lt;- NULL\n\nsubsample_CLEC = Verizon %&gt;% filter(Group == \"CLEC\")\nsubsample_ILEC = Verizon %&gt;% filter(Group == \"ILEC\")\n\nfor(i in 1:boot){\n  # Sample (with replacement) Verizon group (ILEC) customers\n  sample_CLEC = sample(subsample_CLEC$Time, #&lt;&lt;\n                       size = nrow(subsample_CLEC), #&lt;&lt;\n                       replace = T) #&lt;&lt;\n  # Sample (with replacement) Non-Verizon group (CLEC) customers\n  sample_ILEC = sample(subsample_ILEC$Time, #&lt;&lt;\n                       size = nrow(subsample_ILEC), #&lt;&lt;\n                       replace = T) #&lt;&lt;\n}"
+  },
+  {
+    "objectID": "11-ml.html#one-solution-2",
+    "href": "11-ml.html#one-solution-2",
+    "title": "bootstrapping",
+    "section": "One Solution",
+    "text": "One Solution\n\nset.seed(5067)\nboot &lt;- 10000\ndifference &lt;- NULL\n\nsubsample_CLEC = Verizon %&gt;% filter(Group == \"CLEC\")\nsubsample_ILEC = Verizon %&gt;% filter(Group == \"ILEC\")\n\nfor(i in 1:boot){\n  # Sample (with replacement) Verizon group (ILEC) customers\n  sample_CLEC = sample(subsample_CLEC$Time, \n                       size = nrow(subsample_CLEC), \n                       replace = T)\n  # Sample (with replacement) Non-Verizon group (CLEC) customers\n  sample_ILEC = sample(subsample_ILEC$Time, \n                       size = nrow(subsample_ILEC), \n                       replace = T)\n  \n  # Calculate the difference in means between the two groups\n  # Append the difference value to a list\n  difference &lt;- c(difference, mean(sample_CLEC) - mean(sample_ILEC)) #&lt;&lt;\n}"
+  },
+  {
+    "objectID": "11-ml.html#bootstrap-distribution-of-differences",
+    "href": "11-ml.html#bootstrap-distribution-of-differences",
+    "title": "bootstrapping",
+    "section": "Bootstrap Distribution of Differences",
+    "text": "Bootstrap Distribution of Differences\n\n\nCode\ndata.frame(differences = difference) %&gt;%\n  ggplot(aes(x = differences)) + \n  geom_histogram(aes(y = ..density..),color = \"white\", fill = \"grey\") +\n  geom_density() +\n  geom_vline(aes(xintercept = mean(differences), color = \"mean\"), \n             linewidth = 2) +\n  geom_vline(aes(xintercept = median(differences), color = \"median\"),\n             linewidth = 2) +\n  geom_vline(aes(xintercept = quantile(differences, probs = .025), color = \"Lower 2.5%\"), \n             linewidth = 2) +\n    geom_vline(aes(xintercept = quantile(differences, probs = .975), color = \"Upper 2.5%\"), \n               linewidth = 2) +\n  cowplot::theme_cowplot()\n\n\n\nThe difference in means is 7.64 \\([1.66,16.98]\\). What would this mean?"
+  },
+  {
+    "objectID": "11-ml.html#jackknife-resampling",
+    "href": "11-ml.html#jackknife-resampling",
+    "title": "bootstrapping",
+    "section": "Jackknife Resampling",
+    "text": "Jackknife Resampling\nJackknife Resampling is a method where researchers generate n sub-samples, each leaving out one observation. The method is very similar to bootstrapping except the way that we create the sub-samples."
+  },
+  {
+    "objectID": "11-ml.html#jack-of-all-trades-master-of-none---jackknife",
+    "href": "11-ml.html#jack-of-all-trades-master-of-none---jackknife",
+    "title": "bootstrapping",
+    "section": "Jack of all trades, master of none - Jackknife",
+    "text": "Jack of all trades, master of none - Jackknife\n\nCan assess the accuracy of a statistical estimator without making assumptions about the underlying distribution\nComputationally efficient bc only n sub-samples are generated (compared to 10,000 for example)\nNot used as much these days\nSensitive to sample size: If sample size is small, it can result in inaccurate estimates of the bias (e.g., sample size of 6 means six jackknife samples)."
+  },
+  {
+    "objectID": "11-ml.html#permutation-testing",
+    "href": "11-ml.html#permutation-testing",
+    "title": "bootstrapping",
+    "section": "Permutation Testing",
+    "text": "Permutation Testing\nA resampling method that involves randomly shuffling the labels (e.g., conditions) across the data and recomputing the test statistic of interest, thereby deriving a null distribution of the test statistic."
+  },
+  {
+    "objectID": "11-ml.html#permutation-example-restaurants",
+    "href": "11-ml.html#permutation-example-restaurants",
+    "title": "bootstrapping",
+    "section": "Permutation Example: Restaurants",
+    "text": "Permutation Example: Restaurants\nWe are interested in the difference in the rating of group A and group B restaurants.\n\n\nCode\nnames &lt;- c(\"Pappy's Smokehouse\", 'Mai Lee', \"Adriana's on the Hill\", 'Salt & Smoke', 'Chilli Spot', 'BLK MKT')\nlabels &lt;- c('A', 'A', 'A', 'B', 'B', 'B')\nratings &lt;- c(7, 8, 8, 4, 6, 7)\n\nperm_df &lt;- data.frame(name = names, \n                      group = labels, \n                      rating = ratings)\n\nhead(perm_df, 6)\n\n\n                   name group rating\n1    Pappy's Smokehouse     A      7\n2               Mai Lee     A      8\n3 Adriana's on the Hill     A      8\n4          Salt & Smoke     B      4\n5           Chilli Spot     B      6\n6               BLK MKT     B      7"
+  },
+  {
+    "objectID": "11-ml.html#permutation-example-restaurants-1",
+    "href": "11-ml.html#permutation-example-restaurants-1",
+    "title": "bootstrapping",
+    "section": "Permutation Example: Restaurants",
+    "text": "Permutation Example: Restaurants\nThe observed difference is…\n\n\n                   name group rating\n1    Pappy's Smokehouse     A      7\n2               Mai Lee     A      8\n3 Adriana's on the Hill     A      8\n\n\n\n\n[1] 7.666667\n\n\n\n\n          name group rating\n1 Salt & Smoke     B      4\n2  Chilli Spot     B      6\n3      BLK MKT     B      7\n\n\n\n\n[1] 5.666667\n\n\n\nperm_df %&gt;% filter(group == 'A') %&gt;% pull(rating) %&gt;% mean() - perm_df %&gt;% filter(group == 'B') %&gt;% pull(rating) %&gt;% mean()\n\n[1] 2"
+  },
+  {
+    "objectID": "11-ml.html#lets-try",
+    "href": "11-ml.html#lets-try",
+    "title": "bootstrapping",
+    "section": "Let’s Try",
+    "text": "Let’s Try\nInitially, we had 23 CLEC and 1,664 ILEC customers. First, we are going to calculate the mean difference in waiting time between the two groups using the observed data.\n\nsubsample_CLEC = Verizon %&gt;% filter(Group == \"CLEC\")\nsubsample_ILEC = Verizon %&gt;% filter(Group == \"ILEC\")\n\n(mean(subsample_CLEC$Time) - mean(subsample_ILEC$Time))\n\n[1] 8.09752"
+  },
+  {
+    "objectID": "11-ml.html#second-step",
+    "href": "11-ml.html#second-step",
+    "title": "bootstrapping",
+    "section": "Second Step",
+    "text": "Second Step\nWe are going to randomly shuffle the labels of groups (previous CLEC and ILEC labels don’t matter!). Label 23 random customers as CLEC and 1,664 random customers as ILEC 1,000 times, and store the mean difference in waiting time between the two groups inside a list."
+  },
+  {
+    "objectID": "11-ml.html#repeat-1000-times-to-derive-the-p-value",
+    "href": "11-ml.html#repeat-1000-times-to-derive-the-p-value",
+    "title": "bootstrapping",
+    "section": "Repeat 1,000 times to derive the p-value",
+    "text": "Repeat 1,000 times to derive the p-value\nOne iteration would look something like this:\n\nrandom_indices &lt;- sample.int(nrow(Verizon), 23)\nrandom_CLEC &lt;- Verizon[random_indices,]\nrandom_ILEC &lt;- Verizon[-random_indices,]\n\n(mean(random_CLEC$Time) - mean(random_ILEC$Time))\n\n[1] -0.3775922"
+  },
+  {
+    "objectID": "11-ml.html#analysis-plan",
+    "href": "11-ml.html#analysis-plan",
+    "title": "bootstrapping",
+    "section": "Analysis Plan",
+    "text": "Analysis Plan\n\nPut this in a for loop\n\n–\n\nConstruct a list of mean differences\n\n–\n\nDetermine the number of (random) mean differences greater than the observed difference in means (8.10)."
+  },
+  {
+    "objectID": "11-ml.html#one-way-to-do-this",
+    "href": "11-ml.html#one-way-to-do-this",
+    "title": "bootstrapping",
+    "section": "One Way to do this",
+    "text": "One Way to do this\n\nsubsample_CLEC = Verizon %&gt;% filter(Group == \"CLEC\")\nsubsample_ILEC = Verizon %&gt;% filter(Group == \"ILEC\")\nobserved_diff &lt;- mean(subsample_CLEC$Time) - mean(subsample_ILEC$Time)\n\nset.seed(1048596) # Set random seed\nperm = 1000 # Set number of permutations\n\ndifferences &lt;- NULL #&lt;&lt;"
+  },
+  {
+    "objectID": "11-ml.html#one-way-to-do-this-1",
+    "href": "11-ml.html#one-way-to-do-this-1",
+    "title": "bootstrapping",
+    "section": "One Way to do this",
+    "text": "One Way to do this\n\nsubsample_CLEC = Verizon %&gt;% filter(Group == \"CLEC\")\nsubsample_ILEC = Verizon %&gt;% filter(Group == \"ILEC\")\nobserved_diff &lt;- mean(subsample_CLEC$Time) - mean(subsample_ILEC$Time)\n\nset.seed(1048596) # Set random seed\nperm = 1000 # Set number of permutations\n\ndifferences &lt;- NULL\n\nfor (i in 1:perm){\n  random_indices &lt;- sample.int(nrow(Verizon), 23)\n  random_CLEC &lt;- Verizon[random_indices,]\n  random_ILEC &lt;- Verizon[-random_indices,]\n  \n  differences &lt;- c(differences, #&lt;&lt;\n                   mean(random_CLEC$Time) - mean(random_ILEC$Time)) #&lt;&lt;\n}"
+  },
+  {
+    "objectID": "11-ml.html#visualization",
+    "href": "11-ml.html#visualization",
+    "title": "bootstrapping",
+    "section": "Visualization",
+    "text": "Visualization\n\n\nCode\nperm_df = data.frame(diff = differences)\n\nggplot(perm_df, aes(x = diff)) +\n  geom_histogram(color = \"white\") + \n  geom_vline(aes(xintercept = mean(diff), color = \"mean\"), \n             linewidth = 1) +\n  geom_vline(aes(xintercept = median(diff), color = \"median\"), \n             linewidth = 1) +\n  geom_vline(aes(xintercept = observed_diff, color = \"observed\"), \n             linewidth = 1) +\n  ggtitle(\"Empirical Distribution of Differences under the Null\") +\n  cowplot::theme_cowplot()"
+  },
+  {
+    "objectID": "11-ml.html#permutation-testing-summary",
+    "href": "11-ml.html#permutation-testing-summary",
+    "title": "bootstrapping",
+    "section": "Permutation Testing Summary",
+    "text": "Permutation Testing Summary\n\nPermutation testing is useful for hypothesis testing because we can easily derive a \\(p\\)-value\nCan be used when data violates common assumptions about the data (i.e., homogeneity of variance and normality)\nAssumption that the observations need to be exchangeable. Some observations may not be exchangeable (e.g., time series data - data collected at different time points)\nSample size needs to be large. No point randomly shuffling 1,000 times when the possible permutation is less than 1000."
   }
 ]

@@ -13,8 +13,8 @@ html:
 
 ## Today
 
--   Start looking at topics related to machine learning
--   We are going to start off with **Resampling methods**
+
+-  **Resampling methods**
 
 ## First. Sampling
 

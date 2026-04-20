@@ -39,6 +39,8 @@ What is the goal of prediction when you have a categorial (dichotomous) outcome?
 
 We are trying to see if something is ***TRUE*** or ***FALSE***
 
+
+
 ## Learning Goals
 
 1.  WTF is logistic regression. When to use it?

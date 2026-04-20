@@ -29,6 +29,6 @@ editor: source
 
 14. [Bayes](10-bayes.qmd)
 
-15. [Machine learning 1](11-ml.qmd)
+15. [Machine learning 1](12-ml.qmd)
 
-16. [Machine learning 2](12-ml.qmd)
+16. [Machine learning 2](11-ml.qmd)

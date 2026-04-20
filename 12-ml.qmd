@@ -11,11 +11,9 @@ html:
   scrollable: true
 ---
 
-## Today & Last time...
+## Today 
 
--   Resampling methods via bootstrapping & permutation testing
-
--   Lessons from **machine learning**
+-   Start looking at topics related to  **machine learning**
 
 ## Explanation vs. Prediction
 
