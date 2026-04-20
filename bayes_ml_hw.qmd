@@ -1,0 +1,44 @@
+---
+title: "Homework #10"
+---
+
+## Bayes Section
+
+1. In your own words, describe what is meant by an informative prior, weakly informative prior, and flat or uninformative prior. You might need to look this up online, but do your best to put it into your own words (that's where the learning will come in)
+
+2. A researcher runs a study on the effect of a mindfulness intervention on anxiety. Before collecting any data, she believes the effect is likely small but positive — consistent with prior meta-analyses in the area. She encodes this as a prior distribution centered near a small positive value with moderate uncertainty.
+
+    After collecting data, her posterior distribution is centered near a moderate positive effect. A colleague who had no prior expectations (a flat, uninformative prior) analyzes the same data and obtains a posterior centered closer to a large positive effect.
+
+    Explain in your own words why these two researchers ended up with different posterior estimates despite using the same data. What does this illustrate about the role of the prior in Bayesian inference? 
+
+## Machine Learning Section
+
+1. Let's say you are reading a paper and you suspect that their model might be overfitting. What kind of red flags would you expect to see in the paper?
+
+2. Pick any dataset you've worked with this semester. It can be the HCP, the palmer penguins, your own dataset (preferred if you have one!)...whatever. Run a regression that makes sense for those data, assuming you have at least 2 predictors (with or without an interaction).
+
+Now, using the `caret` package, run the same regression with 10-fold cross validation. Here's some scaffolding -- just edit this code chunk directly. Please also change `eval=FALSE` to `eval=TRUE` *before* you knit the file.
+
+```{r, eval=FALSE}
+library(caret)
+
+set.seed(3890)
+
+ctrl <- trainControl(method = "cv", number = 10)
+
+model_cv <- train(DV ~ IV IV .,
+                  data    = your_data,
+                  method  = "lm",
+                  trControl = ctrl)
+
+print(model_cv)
+model_cv$results
+```
+
+Answer the following questions:
+
+* What was the original $R^2$ and what is the cross-validated $R^2$?
+* Does your interpretation of the original OLS model fit change based on your cross-validated model fit?
+* Which one do you trust more and why?
+* What would happen if instead of the number 10 in the code chunk above you changed it to 3890?

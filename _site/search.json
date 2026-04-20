@@ -18,7 +18,7 @@
     "href": "homework.html",
     "title": "homework",
     "section": "",
-    "text": "R Refresher\nHW #2\nHW #3\nHW #4\nHW #4.5\nHW #5\nHW #6/7\nHW #8\nHW #9"
+    "text": "R Refresher\nHW #2\nHW #3\nHW #4\nHW #4.5\nHW #5\nHW #6/7\nHW #8\nHW #9\nHW #10"
   },
   {
     "objectID": "R-Refresher.html",
@@ -2861,5 +2861,26 @@
     "title": "bootstrapping",
     "section": "Permutation Testing Summary",
     "text": "Permutation Testing Summary\n\nPermutation testing is useful for hypothesis testing because we can easily derive a \\(p\\)-value\nCan be used when data violates common assumptions about the data (i.e., homogeneity of variance and normality)\nAssumption that the observations need to be exchangeable. Some observations may not be exchangeable (e.g., time series data - data collected at different time points)\nSample size needs to be large. No point randomly shuffling 1,000 times when the possible permutation is less than 1000."
+  },
+  {
+    "objectID": "bayes_ml_hw.html",
+    "href": "bayes_ml_hw.html",
+    "title": "Homework #10",
+    "section": "",
+    "text": "In your own words, describe what is meant by an informative prior, weakly informative prior, and flat or uninformative prior. You might need to look this up online, but do your best to put it into your own words (that’s where the learning will come in)\nA researcher runs a study on the effect of a mindfulness intervention on anxiety. Before collecting any data, she believes the effect is likely small but positive — consistent with prior meta-analyses in the area. She encodes this as a prior distribution centered near a small positive value with moderate uncertainty.\nAfter collecting data, her posterior distribution is centered near a moderate positive effect. A colleague who had no prior expectations (a flat, uninformative prior) analyzes the same data and obtains a posterior centered closer to a large positive effect.\nExplain in your own words why these two researchers ended up with different posterior estimates despite using the same data. What does this illustrate about the role of the prior in Bayesian inference?"
+  },
+  {
+    "objectID": "bayes_ml_hw.html#bayes-section",
+    "href": "bayes_ml_hw.html#bayes-section",
+    "title": "Homework #10",
+    "section": "",
+    "text": "In your own words, describe what is meant by an informative prior, weakly informative prior, and flat or uninformative prior. You might need to look this up online, but do your best to put it into your own words (that’s where the learning will come in)\nA researcher runs a study on the effect of a mindfulness intervention on anxiety. Before collecting any data, she believes the effect is likely small but positive — consistent with prior meta-analyses in the area. She encodes this as a prior distribution centered near a small positive value with moderate uncertainty.\nAfter collecting data, her posterior distribution is centered near a moderate positive effect. A colleague who had no prior expectations (a flat, uninformative prior) analyzes the same data and obtains a posterior centered closer to a large positive effect.\nExplain in your own words why these two researchers ended up with different posterior estimates despite using the same data. What does this illustrate about the role of the prior in Bayesian inference?"
+  },
+  {
+    "objectID": "bayes_ml_hw.html#machine-learning-section",
+    "href": "bayes_ml_hw.html#machine-learning-section",
+    "title": "Homework #10",
+    "section": "Machine Learning Section",
+    "text": "Machine Learning Section\n\nLet’s say you are reading a paper and you suspect that their model might be overfitting. What kind of red flags would you expect to see in the paper?\nPick any dataset you’ve worked with this semester. It can be the HCP, the palmer penguins, your own dataset (preferred if you have one!)…whatever. Run a regression that makes sense for those data, assuming you have at least 2 predictors (with or without an interaction).\n\nNow, using the caret package, run the same regression with 10-fold cross validation. Here’s some scaffolding – just edit this code chunk directly. Please also change eval=FALSE to eval=TRUE before you knit the file.\n\nlibrary(caret)\n\nset.seed(3890)\n\nctrl &lt;- trainControl(method = \"cv\", number = 10)\n\nmodel_cv &lt;- train(DV ~ IV IV .,\n                  data    = your_data,\n                  method  = \"lm\",\n                  trControl = ctrl)\n\nprint(model_cv)\nmodel_cv$results\n\nAnswer the following questions:\n\nWhat was the original \\(R^2\\) and what is the cross-validated \\(R^2\\)?\nDoes your interpretation of the original OLS model fit change based on your cross-validated model fit?\nWhich one do you trust more and why?\nWhat would happen if instead of the number 10 in the code chunk above you changed it to 3890?"
   }
 ]
